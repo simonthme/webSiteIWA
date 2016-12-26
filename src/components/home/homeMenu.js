@@ -7,7 +7,6 @@ import SegmentTitle from './segmentTitle';
 import {browserHistory} from 'react-router';
 import Login from '../login/login';
 
-
 export default class HomeMenu extends Component {
   constructor(props) {
     super(props);
@@ -33,7 +32,6 @@ export default class HomeMenu extends Component {
             <Modal trigger={<Button style={{marginTop: 5, marginBottom: 5}} basic color='green'>Login</Button>}>
               <Login/>
             </Modal>
-
           </Menu.Menu>
         </Menu>
 

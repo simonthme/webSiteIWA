@@ -5,7 +5,6 @@ import React, {Component} from 'react';
 import {Button, Modal, Form, FormField} from 'semantic-ui-react';
 import ReactDOM from 'react-dom';
 
-
 export default class Login extends Component {
   constructor(props) {
     super(props);
@@ -40,14 +39,8 @@ export default class Login extends Component {
             <Button floated='left' type='submit' onPress>Sign in</Button>
             <Button floated='right'>Sign up</Button>
           </Form.Field>
-          <Form.Field>
-
-          </Form.Field>
-
         </Form>
-
       </Modal.Content>)
   }
-
 
 }
