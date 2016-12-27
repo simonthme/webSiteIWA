@@ -24,17 +24,16 @@ export default class HomeMenu extends Component {
   render() {
     return (
       <div>
-        <Menu pointing>
+        <Menu pointing widths={4} size='small'>
           <Menu.Item name='home' active={this.state.activeItem === 'home'} onClick={this.handleItemClick.bind(this)}/>
           <Menu.Item name='films' active={this.state.activeItem === 'films'} onClick={this.handleItemClick.bind(this)}/>
           <Menu.Item name='series' active={this.state.activeItem === 'series'} onClick={this.handleItemClick.bind(this)}/>
-          <Menu.Menu position='right'>
-            <Modal trigger={<Button style={{marginTop: 5, marginBottom: 5}} basic color='green'>Login</Button>}>
+          <Menu.Item>
+            <Modal trigger={<Button  basic color='green' >Login</Button>}>
               <Login/>
             </Modal>
-          </Menu.Menu>
+          </Menu.Item>
         </Menu>
-
       </div>
     )
   }
