@@ -39,6 +39,9 @@ const authMethods = {
   findOneById(id) {
     return User.findOne({_id: id}).exec();
   },
+  deleteUser(id) {
+    return User.remove({_id: id}).exec();
+  },
   genSalt(number) {
     return bcrypt.genSalt(number);
   },

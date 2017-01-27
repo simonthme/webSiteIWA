@@ -4,6 +4,7 @@
 import SegmentTitleScene from '../scenes/segmentTitleScene';
 import React, {Component} from 'react';
 
+
 const HomeScene = (props) => {
   console.log('Home scene');
   return (

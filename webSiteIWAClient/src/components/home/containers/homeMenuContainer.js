@@ -21,6 +21,8 @@ class HomeMenuContainer extends Component {
     this.setState({activeItem: name});
     if (name !== 'home') {
       browserHistory.push('/' + name);
+    } else {
+      browserHistory.push('/');
     }
   }
 

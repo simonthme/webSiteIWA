@@ -43,7 +43,7 @@ const movieMethods = {
     return Movie.find({uploader: userId}).exec();
   },
   updateMovie(movie) {
-    return Movie.update({_id: movie.id}, movie).exec();
+    return Movie.update({_id: movie._id}, movie).exec();
   }
 };
 

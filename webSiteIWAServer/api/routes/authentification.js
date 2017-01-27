@@ -10,6 +10,7 @@ const jwt = require('jwt-simple');
 const User = require('../models/user');
 const config = require('../../config/config');
 const authMethods = require('../helpers/authMethods');
+const passport = require('passport');
 
 
 
@@ -35,7 +36,6 @@ module.exports = function () {
     }
   });
 
-
   router.post('/login', (req, res) => {
     console.log('user email ' + req.body.userName);
     authMethods.findOneByUserName(req.body.userName)
@@ -48,6 +48,7 @@ module.exports = function () {
           } else {
             user.comparePassword(req.body.password, (err, isMatch) => {
               if (isMatch && !err) {
+                console.log(user._id);
                 const token = jwt.encode({userName: user.userName},
                   config.development.jwtSecret);
                 console.log('Login success');
@@ -58,7 +59,6 @@ module.exports = function () {
                   userData: user
                 });
               } else {
-                console.log("wrong password");
                 res.json({success: false, msg: 'Wrong password'});
               }
             });
@@ -73,5 +73,9 @@ module.exports = function () {
         res.json({success: false, msg: 'error in findone'});
       });
   });
+
+
+
+
   return router;
 };

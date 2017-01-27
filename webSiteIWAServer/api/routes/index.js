@@ -7,6 +7,7 @@ const authRoutes = require('./authentification')(router);
 const episodeRoutes = require('./episode')(router);
 const movieRoutes = require('./movie')(router);
 const tvShowRoutes = require('./tvShow')(router);
+const userRoutes = require('./user')(router);
 const config = require('../../config/config');
 const jwt = require('jwt-simple');
 const User = require('../models/user');
@@ -20,7 +21,8 @@ module.exports = (function () {
     console.log('connected !! ');
   });
 
-  const getToken = function (headers) {
+  const getToken = (headers) => {
+    console.log(headers);
     if (headers && headers.authorization) {
       const parted = headers.authorization.split(' ');
       if (parted.length === 2) {
@@ -40,13 +42,13 @@ module.exports = (function () {
       return next();
     }
     const token = getToken(req.headers);
+    console.log(token);
     if (token) {
-      console.log(token);
       const decoded = jwt.decode(token, config.development.jwtSecret);
       console.log('requete de ' + decoded.userName);
       User.findOne({
         userName: decoded.userName
-      }, function (err, user) {
+      }, (err, user) => {
         if (err) throw err;
         if (!user) {
           return res.status(403).send({success: false, msg: 'Authentication failed. User not found.'});
@@ -64,5 +66,6 @@ module.exports = (function () {
   router.use('/movie', movieRoutes);
   router.use('/tvshow', tvShowRoutes);
   router.use('/episode', episodeRoutes);
+  router.use('/user', userRoutes);
   return router;
 })();

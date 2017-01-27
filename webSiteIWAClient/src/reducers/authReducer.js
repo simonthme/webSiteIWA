@@ -4,9 +4,8 @@
 
 import {browserHistory} from 'react-router';
 
-let initialState = {
-  local: !!localStorage.token
-};
+let initialState = !!localStorage.token;
+
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -16,6 +15,7 @@ export default (state = initialState, action) => {
       return !!localStorage.token;
       break;
     case 'LOGOUT_USER':
+      console.log('logout reducer');
       browserHistory.push('/');
       return !!localStorage.token;
     default:

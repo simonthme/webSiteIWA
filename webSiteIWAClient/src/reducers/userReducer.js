@@ -16,6 +16,15 @@ export default (state = {}, action) => {
       browserHistory.push('/');
       return Object.assign({}, state, action.user);
       break;
+    case 'FETCH_USER_SUCCESS':
+      return Object.assign({}, state, action.user);
+      break;
+    case 'UPDATE_USER_SUCCESS':
+      return Object.assign({}, state, action.user);
+      break;
+    case 'DELETE_USER_SUCCESS':
+      return Object.assign({}, state, {});
+      break;
     default:
       return state;
   }

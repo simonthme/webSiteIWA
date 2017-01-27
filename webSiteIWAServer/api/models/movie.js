@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 
 const movieSchema = new mongoose.Schema({
   movieTitle: String,
-  actors: [{firstName: String, lastName: String}],
+  actors: [String],
   format: String,
   category: String,
   downloadLink: String,

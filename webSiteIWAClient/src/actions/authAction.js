@@ -11,6 +11,6 @@ export const isAuth = () => {
 export const logoutUser = () => {
   localStorage.removeItem('token');
   return {
-    type: 'LOGOUT',
+    type: 'LOGOUT_USER',
   }
 };

@@ -7,8 +7,6 @@ import { Input, Menu, Segment, Button, Modal, Header } from 'semantic-ui-react'
 import LoginContainer from '../../login/containers/loginContainer';
 
 const HomeMenuScene = (props) => {
-  console.log(props.isAuth);
-
   if (props.isAuth) {
     return (
       <Menu pointing widths={4} size='small'>

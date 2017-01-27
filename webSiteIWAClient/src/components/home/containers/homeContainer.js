@@ -17,6 +17,7 @@ class HomeContainer extends Component {
     console.log(this.props.user);
   }
 
+
   render() {
     return (
       <div>

@@ -4,9 +4,11 @@
 import { combineReducers } from 'redux';
 import user from './userReducer';
 import auth from './authReducer';
+import myMovies from './myMoviesRecucer';
 
 
 export default combineReducers({
   user:user,
-  auth: auth
+  auth: auth,
+  myMovies:myMovies,
 });
