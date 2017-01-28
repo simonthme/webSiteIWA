@@ -6,7 +6,7 @@ import { Router, Route, IndexRoute } from 'react-router';
 import App from './components/app/app';
 import HomeContainer from './components/home/containers/homeContainer';
 import SeriesContainer from './components/series/containers/seriesContainer';
-import FilmsContainer from './components/films/containers/filmsContainer';
+import FilmsContainer from './components/films/containers/movieContainer';
 import ProfileContainer from './components/profile/containers/profileContainer';
 
 

@@ -10,8 +10,8 @@ const HomeMenuScene = (props) => {
   if (props.isAuth) {
     return (
       <Menu pointing widths={4} size='small'>
-        <Menu.Item name='home' active={props.activeItem === 'home'} onClick={props.handleItemClick.bind(this)}/>
-        <Menu.Item name='films' active={props.activeItem === 'films'} onClick={props.handleItemClick.bind(this)}/>
+        <Menu.Item name='home' active={props.activeItem === 'home'} onClick={props.handleItemClick}/>
+        <Menu.Item name='films' active={props.activeItem === 'films'} onClick={props.handleItemClick}/>
         <Menu.Item name='series' active={props.activeItem === 'series'} onClick={props.handleItemClick.bind(this)}/>
         <Menu.Item name='profile' active={props.activeItem === 'profile'} onClick={props.handleItemClick.bind(this)}>
         </Menu.Item>
@@ -20,9 +20,9 @@ const HomeMenuScene = (props) => {
   } else {
     return (
       <Menu pointing widths={4} size='small'>
-        <Menu.Item name='home' active={props.activeItem === 'home'} onClick={props.handleItemClick.bind(this)}/>
-        <Menu.Item name='films' active={props.activeItem === 'films'} onClick={props.handleItemClick.bind(this)}/>
-        <Menu.Item name='series' active={props.activeItem === 'series'} onClick={props.handleItemClick.bind(this)}/>
+        <Menu.Item name='home' active={props.activeItem === 'home'} onClick={props.handleItemClick}/>
+        <Menu.Item name='films' active={props.activeItem === 'films'} onClick={props.handleItemClick}/>
+        <Menu.Item name='series' active={props.activeItem === 'series'} onClick={props.handleItemClick}/>
         <Menu.Item>
           <LoginContainer/>
         </Menu.Item>

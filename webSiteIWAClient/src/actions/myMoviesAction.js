@@ -16,7 +16,6 @@ export const createMovie = (movie) => {
   return (dispatch) => {
     return Axios.put(config.apiUrl + '/movie',movie, {headers: {'Authorization': localStorage.token}})
       .then(response => {
-        console.log(response);
         dispatch(createMovieSuccess(response.data.movie))
       })
       .catch(error => {
@@ -28,7 +27,7 @@ export const createMovie = (movie) => {
 export const fetchMovieByUserSuccess = (movie) => {
   console.log('movie success' + JSON.stringify(movie));
   return {
-    type: 'FETCH_MOVIE_SUCCESS',
+    type: 'FETCH_MY_MOVIE_SUCCESS',
     movie
   }
 };
@@ -37,7 +36,6 @@ export const fetchMovieByUser = () => {
   return (dispatch) => {
     return Axios.post(config.apiUrl + '/movie',{}, {headers: {'Authorization': localStorage.token}})
       .then(response => {
-        console.log(response);
         dispatch(fetchMovieByUserSuccess(response.data.movies))
       })
       .catch(error => {
@@ -58,12 +56,30 @@ export const updateMovie = (movie, index) => {
   return (dispatch) => {
     return Axios.patch(config.apiUrl + '/movie',movie, {headers: {'Authorization': localStorage.token}})
       .then(response => {
-        console.log(response);
         dispatch(updateMovieSuccess(response.data.movie, index))
       })
       .catch(error => {
         throw(error);
       });
   };
+};
 
-}
+export const deleteMovieSuccess = (movie, id) => {
+  return {
+    type: 'DELETE_MOVIE_SUCCESS',
+    id
+  }
+};
+
+export const deleteMovie = (movie, index) => {
+  return (dispatch) => {
+    return Axios.post(config.apiUrl + '/movie/delete',movie, {headers: {'Authorization': localStorage.token}})
+      .then(response => {
+        dispatch(deleteMovieSuccess(response.data.movie, index))
+      })
+      .catch(error => {
+        throw(error);
+      });
+  };
+};
+

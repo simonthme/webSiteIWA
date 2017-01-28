@@ -51,6 +51,23 @@ module.exports = function () {
       });
   });
 
+  router.get('/new', (req,res) => {
+    movieMethods.findNewMovie()
+      .then(movies => {
+        if (movies) {
+          console.log(movies);
+          res.json({success: true, msg: 'successfully found new movies', newMovies: movies});
+        } else {
+          res.json({success: false, msg:'no movies found'});
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        res.json({success: false, msg:'error getting new movies'});
+      })
+  });
+
+
   router.get('/:id', (req,res) => {
     if (!req.params.id) {
       res.json({success: false, msg:'missing params'});
@@ -86,6 +103,19 @@ module.exports = function () {
       });
   });
 
+  router.post('/delete', passport.authenticate('jwt', {session: false}), (req,res) => {
+    const userId = req.header.userId;
+    movieMethods.deleteMovie(req.body)
+      .then(deleted => {
+        console.log(deleted);
+        res.json({success:true, msg:'Movie successfully deleted'});
+      })
+      .catch(err => {
+        console.log(err);
+        res.json({success: false, msg:'Error deleting movie'});
+      });
+  });
+
   router.patch('/', passport.authenticate('jwt', {session: false}), (req,res) => {
     const userId = req.header.userId;
     console.log(req.body.id);
@@ -118,6 +148,39 @@ module.exports = function () {
         res.json({success: false, msg:'Error updating movie'})
       })
 
+  });
+
+  router.post('/category', (req, res) => {
+    console.log(req.body.category);
+    movieMethods.findMovieByCategory(req.body.category)
+      .then(movies => {
+        console.log(movies);
+        if (movies) {
+          res.json({success: true, msg: 'Successfully get movie by category', movies});
+        } else {
+          res.json({success: false, msg: 'No movies found'});
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        res.json({success: false, msg: 'Error getting movie by category'});
+      })
+  });
+
+  router.post('/search', (req,res) => {
+    movieMethods.searchByTitle(req.body.searchTitle)
+      .then(movies => {
+        console.log(movies);
+        if (movies) {
+          res.json({success: true, msg:'Successfully search movies', movies});
+        } else {
+            res.json({success: false, msg:'No movies found'});
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        res.json({success: false, msg: 'Error searching title'});
+      });
   });
   return router;
 };

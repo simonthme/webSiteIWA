@@ -16,7 +16,7 @@ const tvShowMethods = {
       const date = new Date();
 
       const tvShowData = {
-        tvShowTitle: tvShow.tvShowTitle,
+        tvShowTitle: tvShow.tvshowTitle,
         actors: tvShow.actors,
         category: tvShow.category,
         totalSeason: tvShow.totalSeason,
@@ -24,6 +24,7 @@ const tvShowMethods = {
         productionDate: tvShow.productionDate,
         creationDate: date.getTime()
       };
+      console.log('INmethod : ');
       console.log(JSON.stringify(tvShowData));
       const newTvShow = new TvShow(tvShowData);
       newTvShow.save()
@@ -41,8 +42,17 @@ const tvShowMethods = {
     return TvShow.find({}).exec();
   },
   updateTvShow(tvShow) {
-    return TvShow.update({_id: tvShow.id}, tvShow).exec();
-  }
+    return TvShow.update({_id: tvShow._id}, tvShow).exec();
+  },
+  deleteTvShow(tvShow) {
+    return TvShow.remove({_id: tvShow._id}).exec();
+  },
+  findNewTvShow() {
+    return TvShow.find({}).sort({productionDate: -1}).limit(5).exec()
+  },
+  findTvShowByCategory(category) {
+    return TvShow.find({category}).exec();
+  },
 };
 
 module.exports = tvShowMethods;

@@ -21,7 +21,7 @@ module.exports = function () {
   router.put('/', passport.authenticate('jwt', {session: false}), (req, res) => {
     req.body.uploader = req.header.userId;
     console.log(req.body);
-    epiodeMethods.saveEpisode(req.body)
+    episodeMethods.saveEpisode(req.body)
       .then(episode => {
         res.json({success: true, msg:'episode successfully created', episode: episode});
       })
@@ -65,10 +65,12 @@ module.exports = function () {
     }
   });
 
-  router.post('/', passport.authenticate('jwt', {session: false}), (req,res) => {
+  router.post('/', (req,res) => {
     const userId = req.header.userId;
-    episodeMethods.findEpisodeByUploader(userId)
+    console.log(req.body);
+    episodeMethods.findEpisodeByTvShow(req.body.id , req.body.season)
       .then(episodes => {
+        console.log(episodes);
         if (episodes.length > 0) {
           res.json({success: true, msg:'Episodes found by uploader', episodes: episodes});
         } else {

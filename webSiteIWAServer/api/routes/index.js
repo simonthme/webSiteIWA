@@ -22,7 +22,6 @@ module.exports = (function () {
   });
 
   const getToken = (headers) => {
-    console.log(headers);
     if (headers && headers.authorization) {
       const parted = headers.authorization.split(' ');
       if (parted.length === 2) {
@@ -38,7 +37,9 @@ module.exports = (function () {
   router.use(function (req, res, next) {
     console.log(req.path);
     if (req.path === '/login' || req.path === '/signup' || (req.path == '/episode' && req.method === 'GET') ||
-      (req.path === '/movie' && req.method === 'GET') || (req.path === '/tvshow' && req.method === 'GET')) {
+      (req.path === '/movie' && req.method === 'GET') || (req.path === '/tvshow' && req.method === 'GET') || req.path === '/movie/new' ||
+    req.path === '/tvshow/new' || req.path === '/movie/category' || req.path === '/tvshow/category' || req.path === '/movie/search' ||
+    req.path === '/episode' || req.path === '/tvshow/category') {
       return next();
     }
     const token = getToken(req.headers);

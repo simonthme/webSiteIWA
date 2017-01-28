@@ -31,7 +31,18 @@ import moment from 'moment';
           value:'Comedie', text:'Comédie'
         }, {
           value:'Action', text:'Action'
-        }],
+        }, {
+          value:'Horreur', text:'Horreur'
+        },{
+          value:'Anime', text:'Animé'
+        },{
+          value:'Drame', text:'Drame'
+        }, {
+            value:'Dessin', text:'Dessins animés'
+        }, {
+          value:'Documentaire', text:'Documentaire'
+        }
+        ],
         modalOpen: false,
       }
     }
@@ -87,7 +98,6 @@ import moment from 'moment';
       this.props.createMovie(movieData)
         .then(() => {
           this.handleClose();
-          console.log(this.props.movies);
         })
         .catch(err => console.log(err));
     };
@@ -121,7 +131,7 @@ import moment from 'moment';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    movies: state.movies,
+    myMovies: state.myMovies,
   }
 };
 

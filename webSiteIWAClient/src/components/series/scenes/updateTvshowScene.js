@@ -1,5 +1,5 @@
 /**
- * Created by simonthome on 25/01/2017.
+ * Created by simonthome on 27/01/2017.
  */
 import React,{Component} from 'react';
 import {Button, Modal, Form, Dropdown} from 'semantic-ui-react';
@@ -8,10 +8,10 @@ import DatePicker from 'react-datepicker';
 require('react-datepicker/dist/react-datepicker.css');
 
 
-const UpdateMovieScene = (props) => {
+const UpdateTvshowScene = (props) => {
   return (
     <Modal
-      trigger={<Button  basic color='green' onClick={props.handleOpen} >Modifier le film</Button>}
+      trigger={<Button  basic color='green' onClick={props.handleOpen} >Modifier la série</Button>}
       open={props.modalOpen}
       onOpen={props.handleOpen}
       onClose={props.handleClose}
@@ -21,19 +21,16 @@ const UpdateMovieScene = (props) => {
         <Form>
           <Form.Field>
             <label>Titre</label>
-            <Form.Input placeholder='Titre du film' onChange={props.updateMovieTitle} value={props.movieTitle}/>
+            <Form.Input placeholder='Titre de la série' onChange={props.updateTvshowTitle} value={props.tvshowTitle}/>
           </Form.Field>
           <Form.Field>
             <label>Acteurs (Séparé par des virgules)</label>
             <Form.Input placeholder='Acteurs' onChange={props.updateActors} value={props.actors}/>
           </Form.Field>
-          <Form.Select
-            placeholder="Format"
-            options={props.formatOptions}
-            onChange={props.updateFormat}
-            value={props.format}
-          >
-          </Form.Select>
+          <Form.Field>
+            <label>Saisons total</label>
+            <Form.Input type="number" placeholder='Nombre de saisons' onChange={props.updateTotalSeasons} value={props.totalSeasons}/>
+          </Form.Field>
           <Form.Select
             placeholder="Catégorie"
             options={props.categoryOptions}
@@ -41,14 +38,6 @@ const UpdateMovieScene = (props) => {
             value={props.category}
           >
           </Form.Select>
-          <Form.Field>
-            <label>Lien de téléchargement</label>
-            <Form.Input placeholder='Lien' onChange={props.updateDownloadLink} value={props.downloadLink}/>
-          </Form.Field>
-          <Form.Field>
-            <label>Lien des sous-titres</label>
-            <Form.Input placeholder='Lien' onChange={props.updateSubLink} value={props.subLink}/>
-          </Form.Field>
           <label>Date de production</label>
           <DatePicker
             selected={props.startDate}
@@ -56,12 +45,12 @@ const UpdateMovieScene = (props) => {
           />
         </Form>
         <Modal.Actions>
-        <Button floated='left' onClick={props.updateMovie}>Mettre à jour le film</Button>
+          <Button floated='left' onClick={props.updateTvshow}>Mettre à jour le film</Button>
         </Modal.Actions>
       </Modal.Content>
     </Modal>
   )
 };
 
-export default UpdateMovieScene;
+export default UpdateTvshowScene;
 

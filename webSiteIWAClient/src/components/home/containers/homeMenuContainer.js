@@ -13,8 +13,8 @@ class HomeMenuContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeItem: 'home',
-    }
+      activeItem: location.pathname.substr(1),
+    };
   }
 
   handleItemClick(e, {name}) {

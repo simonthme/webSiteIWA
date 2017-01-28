@@ -11,11 +11,11 @@ class UpdateMovieContainer extends Component {
 
   constructor(props) {
     super(props);
+    console.log(this.props.movie);
     this.state= {
       movieId: this.props.movie._id,
       movieTitle: this.props.movie.movieTitle,
-      actorsDisplay: this.props.movie.actors.join(','),
-      actors : [],
+      actors : this.props.movie.actors,
       format: this.props.movie.format,
       category: this.props.movie.category,
       downloadLink: this.props.movie.downloadLink,
@@ -36,23 +36,16 @@ class UpdateMovieContainer extends Component {
       }],
       modalOpen: false,
       movieIndex: this.props.movieIndex
-    }
+    };
+    console.log(this.state.startDate);
   }
 
 
 
-  handleOpen() {this.setState({modalOpen: true});
-  console.log(this.state.movieIndex)}
+  handleOpen() {this.setState({modalOpen: true});}
 
   handleClose() {
-    this.setState({modalOpen: false, movieTitle: '',
-      actors : [],
-      format: '',
-      category: '',
-      downloadLink: '',
-      subLink: '',
-      productionDate: '',
-      startDate: moment()});
+    this.setState({modalOpen: false});
   }
 
   updateMovieTitle(title) {this.setState({movieTitle: title.target.value});}
@@ -111,7 +104,7 @@ class UpdateMovieContainer extends Component {
         format={this.state.format}
         category={this.state.category}
         movieTitle={this.state.movieTitle}
-        actorsDisplay={this.state.actorsDisplay}
+        actors={this.state.actors}
         downloadLink={this.state.downloadLink}
         subLink={this.state.subLink}
         productionDate={this.productionDate}

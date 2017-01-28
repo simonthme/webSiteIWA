@@ -15,5 +15,6 @@ const movieSchema = new mongoose.Schema({
   productionDate: Date,
   creationDate: Date,
 });
+movieSchema.index({movieTitle: 'text'});
 
 module.exports = mongoose.model('Movie', movieSchema);

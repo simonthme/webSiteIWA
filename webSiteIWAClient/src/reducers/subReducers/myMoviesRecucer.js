@@ -10,18 +10,19 @@ export default (state = [], action) => {
         Object.assign({}, state, action.movie)
       ];
       break;
-    case 'FETCH_MOVIE_SUCCESS':
-      action.movie.map(movie => {
-        state.push(movie);
-      });
-      return state;
+    case 'FETCH_MY_MOVIE_SUCCESS':
+      return action.movie;
       break;
     case 'UPDATE_MOVIE_SUCCESS':
-      state.filter((movie, index) => index === action.id);
       return [
-        ...state,
-        Object.assign({}, state,action.movie)
+        ...state.map((movie, idx) => idx === action.id ? action.movie : movie)
       ];
+      break;
+    case 'DELETE_MOVIE_SUCCESS':
+      return [
+        ...state.filter((movie, idx) => idx !== action.id)
+      ];
+      break;
     default:
       return state;
   }

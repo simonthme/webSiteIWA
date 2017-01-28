@@ -1,15 +1,16 @@
 /**
- * Created by simonthome on 24/01/2017.
+ * Created by simonthome on 27/01/2017.
  */
 import React, {Component} from 'react';
 import { Button, Card, Image } from 'semantic-ui-react';
-import UpdateMovieContainer from '../containers/updateMovieContainer';
 
-const MyMovieCardsScene = (props) => {
+
+const MovieCardScene = (props) => {
   return(
     <Card.Group>
       {
-        props.myMovies.map((movie, index) => {
+        props.movies.map((movie, index) => {
+          console.log(movie);
           return (
             <Card key={index}>
               <Card.Content>
@@ -17,15 +18,15 @@ const MyMovieCardsScene = (props) => {
                   {movie.movieTitle}
                 </Card.Header>
 
-                  {
-                    movie.actors.map((actor, idx) => {
-                      return (
-                        <Card.Meta key={idx}>
-                          {actor}
-                        </Card.Meta>
-                      )
-                    })
-                  }
+                {
+                  movie.actors.map((actor, idx) => {
+                    return (
+                      <Card.Meta key={idx}>
+                        {actor}
+                      </Card.Meta>
+                    )
+                  })
+                }
                 <Card.Description>
                   Format: {movie.format}<br/>
                   Catégorie: {movie.category}<br/>
@@ -35,12 +36,6 @@ const MyMovieCardsScene = (props) => {
                   Date d'ajout: {movie.creationDate}<br/>
                 </Card.Description>
               </Card.Content>
-              <Card.Content extra>
-                <div className='ui two buttons'>
-                  <UpdateMovieContainer movie={movie} movieIndex={index}/>
-                  <Button basic color='red' onClick={() => {props.deleteMovie(movie, index)}}>Supprimer le film</Button>
-                </div>
-              </Card.Content>
             </Card>
           );
         })
@@ -49,4 +44,4 @@ const MyMovieCardsScene = (props) => {
   )
 };
 
-export default MyMovieCardsScene;
+export default MovieCardScene;

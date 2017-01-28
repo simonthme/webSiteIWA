@@ -3,7 +3,7 @@
  */
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
-import * as userAction from '../../../actions/userAction';
+import * as myTvshowAction from '../../../actions/myTvshowAction';
 import * as authAction from '../../../actions/authAction';
 import * as myMoviesAction from '../../../actions/myMoviesAction';
 import ProfileScene from '../scenes/profileScene';
@@ -19,12 +19,31 @@ class ProfileContainer extends Component {
   componentDidMount() {
     this.props.fetchMoviesByUser()
       .then(() => {
-        console.log(this.props.myMovies);
+        console('fetch movie success');
       })
+      .catch(err => console.log(err));
+
   }
 
   logout() {
     this.props.logoutUser();
+  }
+
+  deleteMovie(movie, index) {
+    this.props.deleteMovie(movie, index)
+      .then(() => {
+      console.log(this.props.myMovies);
+      })
+      .catch(err => console.log(err));
+  }
+
+  deleteTvshow(tvshow, index) {
+    this.props.deleteTvshow(tvshow, index)
+      .then(() => {
+        console.log('TV SHOW DELETE');
+        console.log(this.props.myTvshows);
+      })
+      .catch(err => console.log(err));
   }
 
 
@@ -36,6 +55,9 @@ class ProfileContainer extends Component {
       lastName={this.props.user.lastName}
       user={this.props.user}
       myMovies={this.props.myMovies}
+      deleteMovie={this.deleteMovie.bind(this)}
+      deleteTvshow={this.deleteTvshow.bind(this)}
+      myTvshows={this.props.myTvshows}
       />
     )
   }
@@ -45,7 +67,8 @@ class ProfileContainer extends Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     user: state.user,
-    myMovies: state.myMovies
+    myMovies: state.myMovies,
+    myTvshows: state.myTvshows,
   }
 };
 
@@ -53,7 +76,10 @@ const mapDispatchToProps = (dispatch) => {
   return {
     logoutUser: () => dispatch(authAction.logoutUser()),
     isAuth: () => dispatch(authAction.isAuth()),
-    fetchMoviesByUser: () => dispatch(myMoviesAction.fetchMovieByUser())
+    fetchMoviesByUser: () => dispatch(myMoviesAction.fetchMovieByUser()),
+    deleteMovie: (movie, index) => dispatch(myMoviesAction.deleteMovie(movie, index)),
+    fetchTvshowsByUser: () => dispatch(myTvshowAction.fetchTvshowByUser()),
+    deleteTvshow: (tvshow, index) => dispatch(myTvshowAction.deleteTvshow(tvshow, index))
   }
 };
 

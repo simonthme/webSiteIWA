@@ -89,15 +89,11 @@ export const updateUserSuccess = (user) => {
 
 export const updateUser = (user) => {
   return (dispatch) => {
-    console.log(localStorage.token);
-    console.log(head);
     return Axios.patch(config.apiUrl + '/user', user, {headers:{'Authorization': localStorage.token}})
       .then(response => {
-        console.log(response);
         localStorage.setItem('token', response.data.token);
         console.log(user.password);
         if (user.password !== '') {
-          console.log('in if password');
            Axios.patch(config.apiUrl + '/user/password', user, {headers:{'Authorization': localStorage.token}})
              .then(response => {
                console.log(response);

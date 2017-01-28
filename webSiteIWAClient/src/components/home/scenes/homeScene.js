@@ -11,7 +11,7 @@ const HomeScene = (props) => {
     <div>
     {
       props.titleArray.map((title, index) => {
-      return <SegmentTitleScene key={index} title={title} />
+      return <SegmentTitleScene key={index} title={title} newMovies={props.newMovies} />
     })
     }
     </div>

@@ -44,7 +44,20 @@ const movieMethods = {
   },
   updateMovie(movie) {
     return Movie.update({_id: movie._id}, movie).exec();
-  }
+  },
+  deleteMovie(movie) {
+    return Movie.remove({_id: movie._id}).exec();
+  },
+  findNewMovie() {
+    return Movie.find({}).sort({productionDate: -1}).limit(5).exec()
+  },
+  findMovieByCategory(category) {
+    return Movie.find({category}).exec();
+  },
+  // searchByTitle(searchString) {
+  //   console.log(searchString);
+  //   return Movie.find({$text:{$search:searchString}}).exec();
+  // }
 };
 
 module.exports = movieMethods;

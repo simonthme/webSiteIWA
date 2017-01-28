@@ -1,12 +1,13 @@
 /**
  * Created by simonthome on 22/01/2017.
  */
-import React,{Component} from 'react';
-import TvShowCardScene from '../scenes/tvShowCardScene';
-import {Menu, Input, Dropdown, Header} from 'semantic-ui-react';
+import React, {Component} from 'react';
+import {Grid, Icon, Dropdown, Header, Input, Menu} from 'semantic-ui-react';
+import MovieCardScene from './movieCardScene';
 
-const SeriesScene = (props) => {
-  return ( <div>
+const MovieScene = (props) => {
+  return (
+    <div>
     <Menu vertical>
       <Menu.Item>
         <Input
@@ -50,13 +51,9 @@ const SeriesScene = (props) => {
         </Menu.Menu>
       </Menu.Item>
     </Menu>
-    <TvShowCardScene
-      tvShows={props.tvshows}
-      myEpisodes={props.myEpisodes}
-      seasonOptions={props.seasonOptions}
-      updateSeason={props.updateSeason}
-    />
-  </div>)
+    <MovieCardScene movies={props.movies}/>
+    </div>
+  );
 };
 
-export default SeriesScene;
+export default MovieScene;

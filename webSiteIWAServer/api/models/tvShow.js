@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 
 const tvShowSchema = new mongoose.Schema({
   tvShowTitle: String,
-  actors: [{firstName: String, lastName: String}],
+  actors: [String],
   category: String,
   totalSeason: Number,
   uploader: String,

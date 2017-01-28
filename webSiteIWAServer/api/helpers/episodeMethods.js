@@ -18,6 +18,7 @@ const episodeMethods = {
       const episodeData = {
         episodeTitle: episode.episodeTitle,
         format: episode.format,
+        season: episode.season,
         downloadLink: episode.downloadLink,
         subLink: episode.subLink,
         uploader: episode.uploader,
@@ -36,8 +37,8 @@ const episodeMethods = {
   findAllEpisodes() {
     return Episode.find({}).exec();
   },
-  findEpisodeByUploader(userId) {
-    return Episode.find({uploader: userId}).exec();
+  findEpisodeByTvShow(id, season) {
+    return Episode.find({tvShowId: id, season: season}).exec();
   },
   updateEpisode(episode) {
     return Episode.update({_id: episode.id}, episode).exec();
