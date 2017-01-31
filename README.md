@@ -10,9 +10,8 @@ To get project:
 git clone https://github.com/simonthme/webSiteIWA.git
 ```
 To install all modules and run server:
-```
 On server side:
-```
+``
 npm install
 npm start (to start server)
 ```
