@@ -2,7 +2,7 @@
  * Created by simonthome on 23/01/2017.
  */
 import React,{Component} from 'react';
-import {Button, Modal, Form, Icon} from 'semantic-ui-react';
+import {Button, Modal, Form} from 'semantic-ui-react';
 import DatePicker from 'react-datepicker';
 
 require('react-datepicker/dist/react-datepicker.css');
@@ -59,7 +59,7 @@ const NewMovieScene = (props) => {
           <Form.Field>
             <Button floated='left' onClick={props.addMovie}>Valider</Button>
           </Form.Field>
-          <Form.Field></Form.Field>
+          <br />
         </Form>
       </Modal.Content>
     </Modal>

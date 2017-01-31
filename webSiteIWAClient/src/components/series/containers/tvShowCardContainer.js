@@ -9,7 +9,6 @@ import {connect} from 'react-redux';
 import * as myEpisodesAction from '../../../actions/myEpisodesAction';
 import * as newTvshowsAction from '../../../actions/newTvshowsAction';
 import TvShowCardScene from '../scenes/tvShowCardScene';
-import moment from 'moment';
 
 
 class TvshowCardContainer extends Component {

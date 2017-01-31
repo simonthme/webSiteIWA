@@ -18,7 +18,6 @@ const MovieCardScene = (props) => {
                 <Card.Header>
                   {movie.movieTitle}
                 </Card.Header>
-
                 {
                   movie.actors.map((actor, idx) => {
                     return (

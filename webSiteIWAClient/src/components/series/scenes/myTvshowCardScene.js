@@ -2,7 +2,7 @@
  * Created by simonthome on 27/01/2017.
  */
 import React, {Component} from 'react';
-import { Button, Card, Image, Select, Form, Divider } from 'semantic-ui-react';
+import { Button, Card, Form, Divider } from 'semantic-ui-react';
 import {IntlProvider,FormattedDate} from 'react-intl';
 import UpdateTvshowContainer from '../containers/updateTvshowContainer';
 import NewEpisodeContainer from '../containers/newEpisodeContainer';

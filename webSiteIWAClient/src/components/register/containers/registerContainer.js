@@ -3,7 +3,6 @@
  */
 import React, {Component} from 'react';
 
-import ReactDOM from 'react-dom';
 import RegisterScene from '../scenes/registerScene';
 import {connect} from 'react-redux';
 import * as userAction from '../../../actions/userAction';

@@ -2,8 +2,7 @@
  * Created by simonthome on 27/01/2017.
  */
 import React,{Component} from 'react';
-import {Button, Modal, Form, Dropdown, Message} from 'semantic-ui-react';
-import DatePicker from 'react-datepicker';
+import {Button, Modal, Form, Message} from 'semantic-ui-react';
 
 require('react-datepicker/dist/react-datepicker.css');
 

@@ -3,7 +3,7 @@
  */
 
 import React, {Component} from 'react';
-import {Button, Modal, Icon, Form, FormField} from 'semantic-ui-react';
+import {Button, Modal, Icon} from 'semantic-ui-react';
 
 const DeleteProfileScene = (props) => {
   return (
