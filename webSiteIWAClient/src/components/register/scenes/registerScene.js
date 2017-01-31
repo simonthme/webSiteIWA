@@ -7,7 +7,7 @@ import {Button, Modal, Form, FormField} from 'semantic-ui-react';
 const RegisterScene = (props) => {
   return (
     <Modal
-      trigger={<Button floated='right' onClick={props.handleOpen}>Sign up</Button>}
+      trigger={<Button color='grey' onClick={props.handleOpen}>Register</Button>}
       open={props.modalOpen}
       onOpen={props.handleOpen}
       onClose={props.handleClose}

@@ -8,12 +8,12 @@ import {Grid, Menu, Input, Dropdown, Header} from 'semantic-ui-react';
 const SeriesScene = (props) => {
   return ( <div>
     <Grid celled>
-      <Grid.Column width={4}>
+      <Grid.Column stretched width={5}>
     <Menu fluid vertical>
       <Menu.Item>
         <Input
           placeholder='Search...'
-          action={<Dropdown button floating options={props.options} defaultValue='title' onChange={props.updateSearchSelect} />}
+          action={<Dropdown floating labeled button className='icon' options={props.options} defaultValue='title' onChange={props.updateSearchSelect} />}
           icon="search"
           iconPosition="left"
           onChange={props.updateSearch}
@@ -53,7 +53,7 @@ const SeriesScene = (props) => {
       </Menu.Item>
     </Menu>
       </Grid.Column>
-      <Grid.Column stretched width={12}>
+      <Grid.Column stretched width={11}>
         <segment>
           <TvShowCardScene
             tvShows={props.tvshows}

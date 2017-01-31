@@ -2,20 +2,21 @@
  * Created by simonthome on 22/01/2017.
  */
 import React, {Component} from 'react';
-import {Button, Modal, Form} from 'semantic-ui-react';
-import RegisterContainer from '../../register/containers/registerContainer';
+import {Button, Modal, Form, Container} from 'semantic-ui-react';
 
 
 const LoginScene = (props) => {
   return (
+      <container>
     <Modal
-      trigger={<Button  basic color='green' onClick={props.handleOpen} >Login</Button>}
+      trigger={<Button  color='green' onClick={props.handleOpen} >Login</Button>}
       open={props.modalOpen}
       onOpen={props.handleOpen}
       onClose={props.handleClose}
       closeIcon='close'
     >
     <Modal.Content>
+
       <Form>
         <Form.Field>
           <label>Username</label>
@@ -25,13 +26,12 @@ const LoginScene = (props) => {
           <label>Password</label>
           <Form.Input type='password' placeholder='Password' onChange={props.updatePassword}/>
         </Form.Field>
+        <Form.Field></Form.Field>
       </Form>
-          <Button floated='left' onClick={props.login}>Sign in</Button>
-          <Modal.Actions>
-            <RegisterContainer/>
-          </Modal.Actions>
+      <Button floated='left' onClick={props.login}>Sign in</Button><br />
     </Modal.Content>
   </Modal>
+      </container>
   );
 
 };

@@ -10,12 +10,12 @@ const MovieScene = (props) => {
     <div>
 
       <Grid celled>
-        <Grid.Column width={4}>
+        <Grid.Column width={5}>
     <Menu fluid vertical>
       <Menu.Item>
         <Input
           placeholder='Search...'
-          action={<Dropdown button options={props.options} defaultValue='title' onChange={props.updateSearchSelect} />}
+          action={<Dropdown labeled button className='icon'options={props.options} defaultValue='title' onChange={props.updateSearchSelect} />}
           icon="search"
           iconPosition="left"
           onChange={props.updateSearch}
@@ -55,7 +55,7 @@ const MovieScene = (props) => {
       </Menu.Item>
     </Menu>
           </Grid.Column>
-          <Grid.Column stretched width={12}>
+          <Grid.Column stretched width={11}>
             <segment>
             <MovieCardScene movies={props.movies}/>
               </segment>

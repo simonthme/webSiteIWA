@@ -5,6 +5,7 @@ import React,{Component} from 'react';
 import { Input, Menu, Segment, Button, Modal, Header } from 'semantic-ui-react'
 
 import LoginContainer from '../../login/containers/loginContainer';
+import RegisterContainer from '../../register/containers/registerContainer';
 
 const HomeMenuScene = (props) => {
   if (props.isAuth) {
@@ -24,7 +25,11 @@ const HomeMenuScene = (props) => {
         <Menu.Item name='films' active={props.activeItem === 'films'} onClick={props.handleItemClick}/>
         <Menu.Item name='series' active={props.activeItem === 'series'} onClick={props.handleItemClick}/>
         <Menu.Item>
-          <LoginContainer/>
+            <Button.Group>
+                <RegisterContainer/>
+                <Button.Or />
+                <LoginContainer/>
+            </Button.Group>
         </Menu.Item>
       </Menu>
     );
