@@ -47,7 +47,7 @@ const tvShowMethods = {
     return TvShow.remove({_id: tvShow._id}).exec();
   },
   findNewTvShow() {
-    return TvShow.find({}).sort({productionDate: -1}).limit(5).exec()
+    return TvShow.find({}).sort({productionDate: -1}).limit(4).exec()
   },
   findTvShowByCategory(category) {
     return TvShow.find({category}).exec();

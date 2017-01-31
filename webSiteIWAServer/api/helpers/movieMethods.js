@@ -49,7 +49,7 @@ const movieMethods = {
     return Movie.remove({_id: movie._id}).exec();
   },
   findNewMovie() {
-    return Movie.find({}).sort({productionDate: -1}).limit(5).exec()
+    return Movie.find({}).sort({productionDate: -1}).limit(4).exec()
   },
   findMovieByCategory(category) {
     return Movie.find({category}).exec();
