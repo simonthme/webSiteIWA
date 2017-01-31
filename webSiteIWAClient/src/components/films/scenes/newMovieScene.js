@@ -11,7 +11,7 @@ require('react-datepicker/dist/react-datepicker.css');
 const NewMovieScene = (props) => {
   return (
     <Modal
-      trigger={<Button  basic color='red' onClick={props.handleOpen} >Ajouter un film</Button>}
+      trigger={<Button  floated='right' color='blue' onClick={props.handleOpen} >Ajouter</Button>}
       open={props.modalOpen}
       onOpen={props.handleOpen}
       onClose={props.handleClose}
@@ -24,7 +24,7 @@ const NewMovieScene = (props) => {
             <Form.Input placeholder='Titre du film' onChange={props.updateMovieTitle} />
           </Form.Field>
           <Form.Field>
-            <label>Acteurs (Séparé par des virgules)</label>
+            <label>Acteurs (Séparés par des virgules)</label>
             <Form.Input placeholder='Acteurs' onChange={props.updateActors}/>
           </Form.Field>
           <Form.Select
@@ -49,13 +49,18 @@ const NewMovieScene = (props) => {
             <label>Lien des sous-titres</label>
             <Form.Input placeholder='Lien' onChange={props.updateSubLink}/>
           </Form.Field>
-          <label>Date de production</label>
-          <DatePicker
+          <Form.Field>
+            <label>Date de production</label>
+            <DatePicker
             selected={props.startDate}
             onChange={props.updateProdDate}
-          />
+            />
+            </Form.Field>
+          <Form.Field>
+            <Button floated='left' onClick={props.addMovie}>Valider</Button>
+          </Form.Field>
+          <Form.Field></Form.Field>
         </Form>
-        <Button floated='left' onClick={props.addMovie}>Valider le film</Button>
       </Modal.Content>
     </Modal>
   )

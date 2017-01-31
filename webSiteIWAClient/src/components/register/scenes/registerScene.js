@@ -32,8 +32,10 @@ const RegisterScene = (props) => {
           <input type='password' placeholder='Confirm Password' />
         </Form.Field>
         <Form.Checkbox label='I agree to the Terms and Conditions' />
+        <Button floated='left' onClick={props.register}>Register</Button>
+        <Form.Field>
+        </Form.Field>
       </Form>
-      <Button floated='left' onClick={props.register}>Register</Button>
     </Modal.Content>
     </Modal>
   );

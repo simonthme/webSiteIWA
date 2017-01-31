@@ -30,7 +30,6 @@ const LoginScene = (props) => {
           <Modal.Actions>
             <RegisterContainer/>
           </Modal.Actions>
-
     </Modal.Content>
   </Modal>
   );

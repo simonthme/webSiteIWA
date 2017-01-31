@@ -46,7 +46,11 @@ class UpdateProfileContainer extends Component {
       .then(() => {
         console.log(this.props.user);
         this.handleClose();
-        this.setState({firstName: this.props.user.firstName, lastName: this.props.user.lastName})
+        this.setState({
+          firstName: this.props.user.firstName,
+          lastName: this.props.user.lastName,
+          userName: this.props.user.userName,
+          password: this.props.user.password})
       })
       .catch(err => {console.log(err)});
   }
@@ -65,6 +69,7 @@ class UpdateProfileContainer extends Component {
         firstName={this.state.firstName}
         lastName={this.state.lastName}
         userName={this.state.userName}
+        password={this.state.password}
       />
     )
   }

@@ -21,8 +21,8 @@ class SeriesContainer extends Component {
       activeItem: '',
       options: [
         { key: 'title', text: 'Titre', value: 'title' },
-        { key: 'prodDate', text: 'Date de production', value: 'prodDate' },
-        { key: 'addDate', text: "Date d'ajout", value: 'addDate' },
+        { key: 'prodDate', text: 'Date', value: 'prodDate' },
+        { key: 'addDate', text: 'Ajout', value: 'addDate' },
       ],
       searchValue: 'title'
     };

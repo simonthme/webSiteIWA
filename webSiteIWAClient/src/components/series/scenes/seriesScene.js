@@ -3,15 +3,17 @@
  */
 import React,{Component} from 'react';
 import TvShowCardScene from '../scenes/tvShowCardScene';
-import {Menu, Input, Dropdown, Header} from 'semantic-ui-react';
+import {Grid, Menu, Input, Dropdown, Header} from 'semantic-ui-react';
 
 const SeriesScene = (props) => {
   return ( <div>
-    <Menu vertical>
+    <Grid celled>
+      <Grid.Column width={4}>
+    <Menu fluid vertical>
       <Menu.Item>
         <Input
           placeholder='Search...'
-          action={<Dropdown basic floating options={props.options} defaultValue='title' onChange={props.updateSearchSelect} />}
+          action={<Dropdown button floating options={props.options} defaultValue='title' onChange={props.updateSearchSelect} />}
           icon="search"
           iconPosition="left"
           onChange={props.updateSearch}
@@ -50,12 +52,18 @@ const SeriesScene = (props) => {
         </Menu.Menu>
       </Menu.Item>
     </Menu>
-    <TvShowCardScene
-      tvShows={props.tvshows}
-      myEpisodes={props.myEpisodes}
-      seasonOptions={props.seasonOptions}
-      updateSeason={props.updateSeason}
-    />
+      </Grid.Column>
+      <Grid.Column stretched width={12}>
+        <segment>
+          <TvShowCardScene
+            tvShows={props.tvshows}
+            myEpisodes={props.myEpisodes}
+            seasonOptions={props.seasonOptions}
+            updateSeason={props.updateSeason}
+        />
+        </segment>
+      </Grid.Column>
+    </Grid>
   </div>)
 };
 

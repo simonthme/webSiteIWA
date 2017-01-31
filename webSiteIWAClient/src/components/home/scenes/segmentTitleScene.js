@@ -8,9 +8,9 @@ import TvShowCardContainer from '../../series/containers/tvShowCardContainer'
 
 const SegmentTitle = (props) => {
   let segmentScene = '';
-  if (props.title === 'Nouveaux films') {
+  if (props.title === 'Nouveaux Films') {
     segmentScene = <MovieCardScene movies={props.newMovies}/>
-  } else {
+  } else if (props.title === 'Nouvelles Séries') {
     segmentScene = <TvShowCardContainer/>;
   }
   return (

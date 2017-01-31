@@ -11,7 +11,7 @@ require('react-datepicker/dist/react-datepicker.css');
 const UpdateMovieScene = (props) => {
   return (
     <Modal
-      trigger={<Button  basic color='green' onClick={props.handleOpen} >Modifier le film</Button>}
+      trigger={<Button  basic color='green' onClick={props.handleOpen} >Modifier</Button>}
       open={props.modalOpen}
       onOpen={props.handleOpen}
       onClose={props.handleClose}

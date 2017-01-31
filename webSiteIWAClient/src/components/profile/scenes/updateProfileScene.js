@@ -10,7 +10,7 @@ import {Button, Modal, Form, FormField} from 'semantic-ui-react';
 const UpdateProfileScene = (props) => {
   return (
     <Modal
-      trigger={<Button floated='right' onClick={props.handleOpen}>Modifier votre profil</Button>}
+      trigger={<Button floated='left' onClick={props.handleOpen}>Modifier votre profil</Button>}
       open={props.modalOpen}
       onOpen={props.handleOpen}
       onClose={props.handleClose}
@@ -26,16 +26,17 @@ const UpdateProfileScene = (props) => {
             <Form.Input placeholder='Name' name='name' onChange={props.updateLastName} value={props.lastName}/>
           </Form.Group>
           <Form.Field>
-            <input placeholder='Username' onChange={props.updateUsername} value={props.userName}/>
+            <Form.Input  placeholder='Username' onChange={props.updateUsername} value={props.userName}/>
           </Form.Field>
           <Form.Field>
-            <input type='password' placeholder='Password' onChange={props.updatePassword}/>
+            <Form.Input  type='password' placeholder='Password' onChange={props.updatePassword} value={props.password}/>
           </Form.Field>
           <Form.Field>
-            <input type='password' placeholder='Confirm Password' />
+              <Button floated='left' onClick={props.updateUser}>Modifier</Button>
           </Form.Field>
+            <Form.Field>
+            </Form.Field>
         </Form>
-        <Button floated='left' onClick={props.updateUser}>Modifier</Button>
       </Modal.Content>
     </Modal>
   );

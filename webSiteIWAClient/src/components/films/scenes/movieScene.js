@@ -2,17 +2,20 @@
  * Created by simonthome on 22/01/2017.
  */
 import React, {Component} from 'react';
-import {Grid, Icon, Dropdown, Header, Input, Menu} from 'semantic-ui-react';
+import {Grid, Icon, Dropdown, Header, Input, Menu, Segment} from 'semantic-ui-react';
 import MovieCardScene from './movieCardScene';
 
 const MovieScene = (props) => {
   return (
     <div>
-    <Menu vertical>
+
+      <Grid celled>
+        <Grid.Column width={4}>
+    <Menu fluid vertical>
       <Menu.Item>
         <Input
           placeholder='Search...'
-          action={<Dropdown basic floating options={props.options} defaultValue='title' onChange={props.updateSearchSelect} />}
+          action={<Dropdown button options={props.options} defaultValue='title' onChange={props.updateSearchSelect} />}
           icon="search"
           iconPosition="left"
           onChange={props.updateSearch}
@@ -51,7 +54,13 @@ const MovieScene = (props) => {
         </Menu.Menu>
       </Menu.Item>
     </Menu>
-    <MovieCardScene movies={props.movies}/>
+          </Grid.Column>
+          <Grid.Column stretched width={12}>
+            <segment>
+            <MovieCardScene movies={props.movies}/>
+              </segment>
+            </Grid.Column>
+        </Grid>
     </div>
   );
 };

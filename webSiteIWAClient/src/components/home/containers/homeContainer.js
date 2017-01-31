@@ -13,7 +13,7 @@ class HomeContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      titleArray: ['Nouveaux films', 'Nouvelles séries']
+      titleArray: ['Bienvenue !','Nouveaux Films', 'Nouvelles Séries']
     };
     console.log(this.props.user);
   }

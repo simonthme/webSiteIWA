@@ -2,7 +2,7 @@
  * Created by simonthome on 23/01/2017.
  */
 import React, {Component} from 'react';
-import {Button, Header, Segment} from 'semantic-ui-react';
+import {Grid, Divider, Button, Header, Segment, Container, Icon} from 'semantic-ui-react';
 import NewMovieContainer from '../../films/containers/newMovieContainer';
 import UpdateProfileContainer from '../containers/updateProfileContainer';
 import DeleteProfileContainer from '../containers/deleteProfileContainer';
@@ -14,20 +14,50 @@ const ProfileScene = (props) => {
   console.log(props.myTvshows);
   return (
     <div>
-      <Header as='h1'>Bonjour, {props.firstName} {props.lastName}</Header>
-      <Segment raised>
-        <Header as="h2">Mes films</Header>
-      <MyMovieCardScene myMovies={props.myMovies} deleteMovie={props.deleteMovie}/>
-      </Segment>
-      <Segment raised>
-        <Header as="h2">Mes séries</Header>
-      <MyTvshowCardContainer deleteTvshow={props.deleteTvshow}/>
-      </Segment>
-      <UpdateProfileContainer/>
-      <NewMovieContainer/>
-      <NewTvshowContainer/>
-      <Button onClick={props.logout}>Log out</Button>
-      <DeleteProfileContainer />
+        <Segment.Group>
+            <Segment>
+                <Header as='h1' textAlign='center'>Bonjour {props.firstName} {props.lastName} ,</Header>
+            </Segment>
+            <Segment.Group>
+                <Segment>
+                    <Grid columns={2} relaxed>
+                    <Grid.Column>
+                        <UpdateProfileContainer/>
+                        <DeleteProfileContainer />
+                    </Grid.Column>
+                    <Grid.Column>
+                        <Button color='red' floated='right' onClick={props.logout}>Log out</Button>
+                    </Grid.Column>
+                        </Grid>
+                </Segment>
+                <Segment>
+                    <Grid columns={2} relaxed>
+                        <Grid.Column>
+                            <Segment basic>
+                                <Header as="h2">Mes Films</Header>
+                            </Segment>
+                        </Grid.Column>
+                        <Grid.Column>
+                            <NewMovieContainer/>
+                        </Grid.Column>
+                    </Grid>
+                    <MyMovieCardScene myMovies={props.myMovies} deleteMovie={props.deleteMovie}/>
+                </Segment>
+                <Segment>
+                    <Grid columns={2} relaxed>
+                        <Grid.Column>
+                            <Segment basic>
+                                <Header as="h2">Mes Séries</Header>
+                            </Segment>
+                        </Grid.Column>
+                        <Grid.Column>
+                            <NewTvshowContainer/>
+                        </Grid.Column>
+                    </Grid>
+                    <MyTvshowCardContainer deleteTvshow={props.deleteTvshow}/>
+                </Segment>
+            </Segment.Group>
+        </Segment.Group>
     </div>
   );
 };

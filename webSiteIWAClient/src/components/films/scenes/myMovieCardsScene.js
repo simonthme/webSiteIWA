@@ -30,7 +30,7 @@ const MyMovieCardsScene = (props) => {
                   Format: {movie.format}<br/>
                   Catégorie: {movie.category}<br/>
                   <a href={movie.downloadLink}>Lien de téléchargement</a><br/>
-                  <a href={movie.subLink}>Lien de sous-titre</a><br/>
+                  <a href={movie.subLink}>Lien de sous-titres</a><br/>
                   Date de Production: {movie.productionDate}<br/>
                   Date d'ajout: {movie.creationDate}<br/>
                 </Card.Description>
@@ -38,7 +38,8 @@ const MyMovieCardsScene = (props) => {
               <Card.Content extra>
                 <div className='ui two buttons'>
                   <UpdateMovieContainer movie={movie} movieIndex={index}/>
-                  <Button basic color='red' onClick={() => {props.deleteMovie(movie, index)}}>Supprimer le film</Button>
+                  <Button.Or />
+                  <Button basic color='red' onClick={() => {props.deleteMovie(movie, index)}}>Supprimer</Button>
                 </div>
               </Card.Content>
             </Card>
