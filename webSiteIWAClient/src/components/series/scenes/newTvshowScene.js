@@ -11,7 +11,7 @@ require('react-datepicker/dist/react-datepicker.css');
 const NewTvshowScene = (props) => {
   return (
     <Modal
-      trigger={<Button  color='blue' floated='right' onClick={props.handleOpen} >Ajouter</Button>}
+      trigger={<Button floated='right' onClick={props.handleOpen} icon="plus" ></Button>}
       open={props.modalOpen}
       onOpen={props.handleOpen}
       onClose={props.handleClose}

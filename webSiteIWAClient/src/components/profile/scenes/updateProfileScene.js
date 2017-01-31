@@ -10,7 +10,7 @@ import {Button, Modal, Form, FormField} from 'semantic-ui-react';
 const UpdateProfileScene = (props) => {
   return (
     <Modal
-      trigger={<Button floated='left' onClick={props.handleOpen}>Modifier votre profil</Button>}
+      trigger={<Button floated='left' color='facebook' onClick={props.handleOpen}>Modifier votre profil</Button>}
       open={props.modalOpen}
       onOpen={props.handleOpen}
       onClose={props.handleClose}

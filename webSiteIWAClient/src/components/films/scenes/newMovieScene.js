@@ -2,7 +2,7 @@
  * Created by simonthome on 23/01/2017.
  */
 import React,{Component} from 'react';
-import {Button, Modal, Form, Dropdown} from 'semantic-ui-react';
+import {Button, Modal, Form, Icon} from 'semantic-ui-react';
 import DatePicker from 'react-datepicker';
 
 require('react-datepicker/dist/react-datepicker.css');
@@ -11,7 +11,7 @@ require('react-datepicker/dist/react-datepicker.css');
 const NewMovieScene = (props) => {
   return (
     <Modal
-      trigger={<Button  floated='right' color='blue' onClick={props.handleOpen} >Ajouter</Button>}
+      trigger={<Button  floated='right' onClick={props.handleOpen} icon="plus"></Button>}
       open={props.modalOpen}
       onOpen={props.handleOpen}
       onClose={props.handleClose}

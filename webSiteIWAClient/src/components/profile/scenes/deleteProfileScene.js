@@ -8,7 +8,7 @@ import {Button, Modal, Icon, Form, FormField} from 'semantic-ui-react';
 const DeleteProfileScene = (props) => {
   return (
     <Modal
-      trigger={<Button floated='left' onClick={props.handleOpen}>Supprimer votre profil</Button>}
+      trigger={<Button color='google plus' floated='left' onClick={props.handleOpen}>Supprimer votre profil</Button>}
       open={props.modalOpen}
       onOpen={props.handleOpen}
       onClose={props.handleClose}

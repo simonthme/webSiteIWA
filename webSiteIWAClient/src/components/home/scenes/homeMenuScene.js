@@ -10,7 +10,7 @@ import RegisterContainer from '../../register/containers/registerContainer';
 const HomeMenuScene = (props) => {
   if (props.isAuth) {
     return (
-      <Menu pointing widths={4} size='small'>
+      <Menu color="grey" inverted pointing widths={4} size='massive'>
         <Menu.Item name='home' active={props.activeItem === 'home'} onClick={props.handleItemClick}/>
         <Menu.Item name='films' active={props.activeItem === 'films'} onClick={props.handleItemClick}/>
         <Menu.Item name='series' active={props.activeItem === 'series'} onClick={props.handleItemClick.bind(this)}/>
@@ -20,7 +20,7 @@ const HomeMenuScene = (props) => {
     );
   } else {
     return (
-      <Menu pointing widths={4} size='small'>
+      <Menu pointing color="grey" inverted  widths={4} size='massive'>
         <Menu.Item name='home' active={props.activeItem === 'home'} onClick={props.handleItemClick}/>
         <Menu.Item name='films' active={props.activeItem === 'films'} onClick={props.handleItemClick}/>
         <Menu.Item name='series' active={props.activeItem === 'series'} onClick={props.handleItemClick}/>

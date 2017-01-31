@@ -16,7 +16,15 @@ const ProfileScene = (props) => {
     <div>
         <Segment.Group>
             <Segment>
-                <Header as='h1' textAlign='center'>Bonjour {props.firstName} {props.lastName} ,</Header>
+                <Header as='h1' textAlign='center'>
+                        <Icon name='settings' />
+                        <Header.Content>
+                            Bienvenue {props.firstName} {props.lastName}
+                            <Header.Subheader>
+                                Gérer votre compte
+                            </Header.Subheader>
+                        </Header.Content>
+                </Header>
             </Segment>
             <Segment.Group>
                 <Segment>
