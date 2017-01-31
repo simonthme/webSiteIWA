@@ -11,7 +11,7 @@ const MovieScene = (props) => {
 
       <Grid celled>
         <Grid.Column width={5}>
-    <Menu fluid vertical>
+    <Menu fluid vertical size="large">
       <Menu.Item>
         <Input
           placeholder='Search...'

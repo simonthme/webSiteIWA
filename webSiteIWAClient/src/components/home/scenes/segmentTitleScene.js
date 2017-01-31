@@ -16,7 +16,7 @@ const SegmentTitle = (props) => {
   return (
     <div>
       <Segment raised>
-        <Header as="h2" color="violet">{props.title}</Header>
+        <Header as="h2" color="red" inverted>{props.title}</Header>
         {segmentScene}
       </Segment>
     </div>

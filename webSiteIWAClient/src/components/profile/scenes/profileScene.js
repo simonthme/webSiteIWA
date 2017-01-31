@@ -2,7 +2,7 @@
  * Created by simonthome on 23/01/2017.
  */
 import React, {Component} from 'react';
-import {Grid, Divider, Button, Header, Segment, Container, Icon} from 'semantic-ui-react';
+import {Grid, Divider, Button, Header, Segment, Accordion, Icon} from 'semantic-ui-react';
 import NewMovieContainer from '../../films/containers/newMovieContainer';
 import UpdateProfileContainer from '../containers/updateProfileContainer';
 import DeleteProfileContainer from '../containers/deleteProfileContainer';
@@ -39,30 +39,50 @@ const ProfileScene = (props) => {
                         </Grid>
                 </Segment>
                 <Segment>
-                    <Grid columns={2} relaxed>
-                        <Grid.Column>
-                            <Segment basic>
-                                <Header as="h2">Mes Films</Header>
-                            </Segment>
-                        </Grid.Column>
-                        <Grid.Column>
-                            <NewMovieContainer/>
-                        </Grid.Column>
-                    </Grid>
-                    <MyMovieCardScene myMovies={props.myMovies} deleteMovie={props.deleteMovie}/>
+                    <Accordion>
+                        <Accordion.Title>
+                            <Grid columns={3} relaxed>
+                                <Grid.Column>
+                                    <Segment basic>
+                                        <Header as="h2"><Icon name='dropdown' />
+                                            Mes Films
+                                            </Header>
+                                    </Segment>
+                                </Grid.Column>
+                                <Grid.Column>
+                                </Grid.Column>
+                                <Grid.Column>
+                                    <NewMovieContainer/>
+                                </Grid.Column>
+                            </Grid>
+                        </Accordion.Title>
+                        <Accordion.Content>
+                            <MyMovieCardScene myMovies={props.myMovies} deleteMovie={props.deleteMovie}/>
+                        </Accordion.Content>
+                    </Accordion>
                 </Segment>
                 <Segment>
-                    <Grid columns={2} relaxed>
-                        <Grid.Column>
-                            <Segment basic>
-                                <Header as="h2">Mes Séries</Header>
-                            </Segment>
-                        </Grid.Column>
-                        <Grid.Column>
-                            <NewTvshowContainer/>
-                        </Grid.Column>
-                    </Grid>
-                    <MyTvshowCardContainer deleteTvshow={props.deleteTvshow}/>
+                    <Accordion>
+                        <Accordion.Title>
+                            <Grid columns={3} relaxed>
+                                <Grid.Column>
+                                    <Segment basic>
+                                        <Header as="h2"><Icon name='dropdown' />
+                                            Mes Séries
+                                        </Header>
+                                    </Segment>
+                                </Grid.Column>
+                                <Grid.Column>
+                                </Grid.Column>
+                                <Grid.Column>
+                                    <NewMovieContainer/>
+                                </Grid.Column>
+                            </Grid>
+                        </Accordion.Title>
+                        <Accordion.Content>
+                            <MyTvshowCardContainer deleteTvshow={props.deleteTvshow}/>
+                        </Accordion.Content>
+                    </Accordion>
                 </Segment>
             </Segment.Group>
         </Segment.Group>

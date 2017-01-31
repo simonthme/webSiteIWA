@@ -2,7 +2,7 @@
  * Created by simonthome on 25/01/2017.
  */
 import React,{Component} from 'react';
-import {Button, Modal, Form, Dropdown} from 'semantic-ui-react';
+import {Button, Modal, Form, Container} from 'semantic-ui-react';
 import DatePicker from 'react-datepicker';
 
 require('react-datepicker/dist/react-datepicker.css');
@@ -49,15 +49,22 @@ const UpdateMovieScene = (props) => {
             <label>Lien des sous-titres</label>
             <Form.Input placeholder='Lien' onChange={props.updateSubLink} value={props.subLink}/>
           </Form.Field>
+          <Form.Field>
           <label>Date de production</label>
           <DatePicker
             selected={props.startDate}
             onChange={props.updateProdDate}
           />
+            </Form.Field>
+          <Form.Field>
+              </Form.Field>
         </Form>
         <Modal.Actions>
+          <container>
         <Button floated='left' onClick={props.updateMovie}>Mettre à jour le film</Button>
+            </container>
         </Modal.Actions>
+        <br />
       </Modal.Content>
     </Modal>
   )

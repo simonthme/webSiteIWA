@@ -9,7 +9,7 @@ const SeriesScene = (props) => {
   return ( <div>
     <Grid celled>
       <Grid.Column stretched width={5}>
-    <Menu fluid vertical>
+    <Menu fluid vertical size="large">
       <Menu.Item>
         <Input
           placeholder='Search...'
@@ -23,7 +23,7 @@ const SeriesScene = (props) => {
         <Header as='h4'>Categories</Header>
         <Menu.Menu>
           <Menu.Item name='Tous les films' active={props.activeItem === 'Tous les films'} onClick={props.handleItemClick}>
-            Tous les films
+            Toutes les séries
           </Menu.Item>
           <Menu.Item name='Romantique' active={props.activeItem === 'Romantique'} onClick={props.handleItemClick}>
             Romantique

@@ -38,15 +38,20 @@ const UpdateTvshowScene = (props) => {
             value={props.category}
           >
           </Form.Select>
+          <Form.Field>
           <label>Date de production</label>
           <DatePicker
             selected={props.startDate}
             onChange={props.updateProdDate}
           />
+            </Form.Field>
         </Form>
         <Modal.Actions>
+          <container>
           <Button floated='left' onClick={props.updateTvshow}>Mettre à jour le film</Button>
+            </container>
         </Modal.Actions>
+        <br />
       </Modal.Content>
     </Modal>
   )
