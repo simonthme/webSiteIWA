@@ -3,7 +3,7 @@
  */
 
 import Axios from 'axios';
-import actionTypes from './actionTypes';
+
 import config from '../../assets/config';
 
 const head = {
@@ -19,17 +19,34 @@ export const createUserSuccess = (user) => {
   }
 };
 
+export const createUserError = () => {
+  return {
+    type: 'CREATE_USER_ERROR'
+  }
+};
+
 export const createUser = (user) => {
   return (dispatch) => {
     return Axios.post(config.apiUrl + '/signup', user)
       .then(response => {
         console.log(response);
-        dispatch(createUserSuccess(response.data.userData))
+        if (response.data.success) {
+          dispatch(createUserSuccess(response.data.userData))
+        } else {
+          dispatch(createUserError())
+        }
+
       })
       .catch(error => {
         throw(error);
       });
   };
+};
+
+export const loginUserError = () => {
+  return {
+    type: 'LOGIN_USER_ERROR',
+  }
 };
 
 export const loginUserSuccess = (user) => {
@@ -49,7 +66,7 @@ export const loginUser = (user) => {
           localStorage.setItem('token', response.data.token);
           dispatch(loginUserSuccess(response.data.userData))
         } else {
-          //TODO dispatch error
+          dispatch(loginUserError())
         }
 
       })

@@ -19,7 +19,6 @@ const tvShowMethods = {
         tvShowTitle: tvShow.tvshowTitle,
         actors: tvShow.actors,
         category: tvShow.category,
-        totalSeason: tvShow.totalSeason,
         uploader: tvShow.uploader,
         productionDate: tvShow.productionDate,
         creationDate: date.getTime()

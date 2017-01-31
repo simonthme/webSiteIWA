@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 
 const episodeSchema = new mongoose.Schema({
   episodeTitle: String,
+  tvShowId: String,
   format: String,
   season: String,
   downloadLink: String,

@@ -3,7 +3,7 @@
  */
 
 import Axios from 'axios';
-import actionTypes from './actionTypes';
+
 import config from '../../assets/config';
 
 export const fetchTvshowSuccess = (tvshow) => {

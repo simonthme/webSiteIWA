@@ -58,18 +58,23 @@ class SeriesContainer extends Component {
   };
 
   updateSearchSelect (e, {value}) {
-    this.setState({searchValue: value});
+    this.state.searchValue = value;
     console.log(this.state.searchValue);
   }
 
   updateSearch(searchString) {
-    this.props.searchTvshowSuccess(searchString.target.value, this.state.searchValue);
-    // this.props.searchMovie({searchTitle: this.state.searchValue})
-    //   .then(() => {
-    //   console.log('ok search');
-    //   console.log(this.props.movies);
-    //   })
-    //   .catch(err => console.log(err));
+    if (searchString.target.value !== '') {
+      console.log('search');
+      this.props.searchTvshowSuccess(searchString.target.value, this.state.searchValue);
+    } else {
+      console.log('init');
+      this.props.fetchTvshow()
+        .then(() => {
+          console.log('success fetch movie');
+          console.log(this.props.movies);
+        })
+        .catch(err => console.log(err));
+    }
   };
 
   updateSeason(e,value, id) {

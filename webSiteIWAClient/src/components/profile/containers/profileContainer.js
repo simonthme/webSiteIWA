@@ -29,6 +29,24 @@ class ProfileContainer extends Component {
     this.props.logoutUser();
   }
 
+  getTvshowCount() {
+    let counter = 0;
+    this.props.myTvshows.map(item => {
+      counter++;
+    });
+    console.log(counter);
+    return counter;
+  }
+
+  getMovieCount() {
+    let counter = 0;
+    this.props.myMovies.map(item => {
+      counter++;
+      });
+    console.log(counter);
+    return counter;
+  }
+
   deleteMovie(movie, index) {
     this.props.deleteMovie(movie, index)
       .then(() => {
@@ -58,6 +76,9 @@ class ProfileContainer extends Component {
       deleteMovie={this.deleteMovie.bind(this)}
       deleteTvshow={this.deleteTvshow.bind(this)}
       myTvshows={this.props.myTvshows}
+      getTvshowCount={this.getTvshowCount.bind(this)}
+      getMovieCount={this.getMovieCount.bind(this)}
+
       />
     )
   }

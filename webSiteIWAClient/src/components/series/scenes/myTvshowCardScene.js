@@ -3,8 +3,10 @@
  */
 import React, {Component} from 'react';
 import { Button, Card, Image, Select, Form, Divider } from 'semantic-ui-react';
+import {IntlProvider,FormattedDate} from 'react-intl';
 import UpdateTvshowContainer from '../containers/updateTvshowContainer';
 import NewEpisodeContainer from '../containers/newEpisodeContainer';
+
 
 
 const MyTvshowCardScene = (props) => {
@@ -28,12 +30,16 @@ const MyTvshowCardScene = (props) => {
                     )
                   })
                 }
+                <IntlProvider locale="fr">
                 <Card.Description>
                   Saisons: {tvshow.totalSeason}<br/>
                   Catégorie: {tvshow.category}<br/>
-                  Date de Production: {tvshow.productionDate}<br/>
-                  Date d'ajout: {tvshow.creationDate}<br/>
+                  Date de Production: <FormattedDate  value={tvshow.productionDate}
+                /><br/>
+                  Date d'ajout: <FormattedDate  value={tvshow.creationDate}
+                /><br/>
                 </Card.Description>
+                </IntlProvider>
               <Card.Description>
                 <Form.Select
                   placeholder="Saison"
@@ -42,18 +48,23 @@ const MyTvshowCardScene = (props) => {
                 />
                 {
                   props.myEpisodes.map((episode,idex) => {
-                    return(
-                      <div key={idex}>
-                        <Divider/>
-                        <p>{episode.episodeTitle}<br/>
-                          <a href={episode.downloadLink}>Lien de téléchargment</a>
-                          <br/>
-                          <a href={episode.subLink}>Lien sous-titres</a>
-                          <br/>
+                    if (episode.tvShowId === tvshow._id) {
+                      return(
+                        <div key={idex}>
+                          <Divider/>
+                          <p>{episode.episodeTitle}<br/>
+                            <a href={episode.downloadLink}>Lien de téléchargment</a>
+                            <br/>
+                            <a href={episode.subLink}>Lien sous-titres</a>
+                            <br/>
                           </p>
-                        <Divider/>
-                      </div>
-                    )
+                          <Divider/>
+                        </div>
+                      )
+                    } else {
+                      return null;
+                    }
+
                   })
                 }
               </Card.Description>

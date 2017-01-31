@@ -44,14 +44,6 @@ class MyTvshowCardContainer extends Component {
   }
 
 
-  deleteEpisode(episodeId, idx) {
-    this.props.deleteEpisode({id: episodeId}, idx)
-      .then(() => {
-        console.log(this.props.myEpisodes);
-      })
-      .catch(err => console.log(err));
-  }
-
   render() {
     return (
       <div>

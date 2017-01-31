@@ -27,10 +27,6 @@ const UpdateTvshowScene = (props) => {
             <label>Acteurs (Séparé par des virgules)</label>
             <Form.Input placeholder='Acteurs' onChange={props.updateActors} value={props.actors}/>
           </Form.Field>
-          <Form.Field>
-            <label>Saisons total</label>
-            <Form.Input type="number" placeholder='Nombre de saisons' onChange={props.updateTotalSeasons} value={props.totalSeasons}/>
-          </Form.Field>
           <Form.Select
             placeholder="Catégorie"
             options={props.categoryOptions}

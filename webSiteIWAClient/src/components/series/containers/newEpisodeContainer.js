@@ -28,6 +28,8 @@ class NewEpisodeContainer extends Component {
         { text: "Saison 3", value: 'season3' },
       ],
       modalOpen: false,
+      messageVisible: true,
+      errorMessage: ''
     }
   }
 
@@ -47,6 +49,10 @@ class NewEpisodeContainer extends Component {
     console.log(this.state.season);
   }
 
+  dismissMessage(e, data) {
+    this.setState({messageVisible:true});
+  }
+
   updateEpisodeTitle(title) {this.setState({episodeTitle: title.target.value});}
 
   updateFormat(e, {value}) {this.setState({format: value});}
@@ -63,22 +69,27 @@ class NewEpisodeContainer extends Component {
     console.log(this.props.tvShowId);
     console.log(this.state.season);
 
-    const episodeData = {
-      tvShowId : this.props.tvShowId,
-      episodeTitle: this.state.episodeTitle,
-      actors: this.state.actors,
-      season: this.state.season,
-      format: this.state.format,
-      category: this.state.category,
-      downloadLink: this.state.downloadLink,
-      subLink: this.state.subLink,
-      productionDate: this.state.productionDate,
-    };
-    this.props.createEpisode(episodeData)
-      .then(() => {
-        this.handleClose();
-      })
-      .catch(err => console.log(err));
+    if (this.state.episodeTitle === '' || this.state.format === '' || this.state.downloadLink === '' || this.state.subLink === '' || this.state.season === '') {
+      this.setState({messageVisible: false, errorMessage: 'Veuillez remplir tous les champs.'});
+    } else {
+      const episodeData = {
+        tvShowId : this.props.tvShowId,
+        episodeTitle: this.state.episodeTitle,
+        actors: this.state.actors,
+        season: this.state.season,
+        format: this.state.format,
+        category: this.state.category,
+        downloadLink: this.state.downloadLink,
+        subLink: this.state.subLink,
+        productionDate: this.state.productionDate,
+      };
+      this.props.createEpisode(episodeData)
+        .then(() => {
+          this.handleClose();
+        })
+        .catch(err => console.log(err));
+    }
+
   };
 
 
@@ -89,6 +100,9 @@ class NewEpisodeContainer extends Component {
         formatOptions={this.state.formatOptions}
         seasonOptions={this.state.seasonOptions}
         format={this.state.format}
+        messageVisible={this.state.messageVisible}
+        errorMessage={this.state.errorMessage}
+        dismissMessage={this.dismissMessage.bind(this)}
         handleOpen={this.handleOpen.bind(this)}
         handleClose={this.handleClose.bind(this)}
         updateEpisodeTitle={this.updateEpisodeTitle.bind(this)}

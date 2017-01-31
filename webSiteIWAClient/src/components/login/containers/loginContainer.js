@@ -16,6 +16,8 @@ class LoginContainer extends Component {
       password: '',
       references: { username: 'username', password: 'password'},
       modalOpen: false,
+      messageVisible: true,
+      errorMessage: '',
     };
   }
 
@@ -27,16 +29,27 @@ class LoginContainer extends Component {
 
   updatePassword(e) {this.setState({password: e.target.value});}
 
+  dismissMessage(e, data) {
+    this.setState({messageVisible:true});
+  }
+
   login() {
+    if (this.state.username === '' || this.state.password === ''){
+      this.setState({messageVisible: false, errorMessage:'Mot de passe/ nom d\'utilisateur incorrect'});
+    }
     const userData = {
       userName: this.state.username,
       password: this.state.password
     };
     this.props.loginUser(userData)
       .then(() => {
-        this.handleClose();
-        console.log(this.props.user);
-        this.props.isAuth();
+        if (Object.keys(this.props.user).length === 0 && this.props.user.constructor === Object) {
+          this.setState({messageVisible: false, errorMessage: 'Mot de passe/ nom d\'utilisateur incorrect'});
+        } else {
+          this.handleClose();
+          console.log(this.props.user);
+          this.props.isAuth();
+        }
       })
       .catch(err => console.log(err));
   }
@@ -51,6 +64,9 @@ class LoginContainer extends Component {
         handleClose={this.handleClose.bind(this)}
         handleOpen={this.handleOpen.bind(this)}
         modalOpen={this.state.modalOpen}
+        messageVisible={this.state.messageVisible}
+        dismissMessage={this.dismissMessage.bind(this)}
+        errorMessage={this.state.errorMessage}
       />
       );
   }

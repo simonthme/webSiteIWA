@@ -19,6 +19,7 @@ const MovieScene = (props) => {
           icon="search"
           iconPosition="left"
           onChange={props.updateSearch}
+          value={props.searchString}
         />
       </Menu.Item>
       <Menu.Item>

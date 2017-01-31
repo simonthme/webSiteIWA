@@ -9,6 +9,7 @@ import {connect} from 'react-redux';
 import * as userAction from '../../../actions/userAction';
 
 
+
  class RegisterContainer extends Component {
     constructor(props) {
         super(props);
@@ -17,7 +18,11 @@ import * as userAction from '../../../actions/userAction';
             firstName: '',
             username: '',
             password: '',
+          confirmPassword: '',
             modalOpen: false,
+          messageVisible: true,
+          errorMessage: '',
+          checked: false,
         };
     }
 
@@ -33,15 +38,43 @@ import * as userAction from '../../../actions/userAction';
 
     updatePassword(e) {this.setState({password: e.target.value});}
 
+    updateConfirmPassword(e) {this.setState({confirmPassword: e.target.value})}
+
+    dismissMessage(e, data) {
+      this.setState({messageVisible:true});
+    }
+    updateCheck() {
+      let updateChecked = !this.state.checked;
+      this.setState({checked: updateChecked});
+    }
+
+
     register() {
-      const userData = {
-        firstName: this.state.firstName,
-        lastName: this.state.lastName,
-        userName: this.state.username,
-        password: this.state.password,
-      };
-      this.props.createUser(userData);
-      this.handleClose();
+      console.log(this.state.checked);
+      console.log(this.state.firstName);
+      console.log(this.state.lastName);
+      console.log(this.state.username);
+      console.log(this.state.password);
+      console.log(this.state.confirmPassword);
+      if (this.state.firstName === '' || this.state.lastName === '' || this.state.username === '' || this.state.password !== this.state.confirmPassword || !this.state.checked) {
+        this.setState({messageVisible: false, errorMessage: 'Veuillez remplir les champs correctement.'});
+      } else {
+        const userData = {
+          firstName: this.state.firstName,
+          lastName: this.state.lastName,
+          userName: this.state.username,
+          password: this.state.password,
+        };
+        this.props.createUser(userData).then(() => {
+          if (Object.keys(this.props.user).length === 0 && this.props.user.constructor === Object) {
+            this.setState({messageVisible: false, errorMessage: "Le nom d'utilisateur est déjà pris."});
+          } else {
+            this.handleClose();
+          }
+        })
+          .catch(err => console.log(err));
+
+      }
     }
 
     render() {
@@ -51,10 +84,16 @@ import * as userAction from '../../../actions/userAction';
             updateFirstName={this.updateFirstName.bind(this)}
             updateUsername={this.updateUsername.bind(this)}
             updatePassword={this.updatePassword.bind(this)}
+            updateConfirmPassword={this.updateConfirmPassword.bind(this)}
             register={this.register.bind(this)}
             modalOpen={this.state.modalOpen}
+            errorMessage={this.state.errorMessage}
+            messageVisible={this.state.messageVisible}
+            checked={this.state.checked}
+            dismissMessage={this.dismissMessage.bind(this)}
             handleOpen={this.handleOpen.bind(this)}
             handleClose={this.handleClose.bind(this)}
+            updateCheck={this.updateCheck.bind(this)}
           />
         )
     }

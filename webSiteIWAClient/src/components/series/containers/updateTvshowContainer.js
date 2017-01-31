@@ -16,7 +16,6 @@ class UpdateTvshowContainer extends Component {
       tvshowId: this.props.tvshow._id,
       tvshowTitle: this.props.tvshow.tvShowTitle,
       actors : this.props.tvshow.actors,
-      totalSeasons: this.props.tvshow.totalSeason.toString(),
       category: this.props.tvshow.category,
       productionDate: '',
       startDate: moment(this.props.tvshow.productionDate),
@@ -46,11 +45,6 @@ class UpdateTvshowContainer extends Component {
   updateActors(title) {
     let actorsArray = title.target.value.split(',');
     this.setState({actors: actorsArray});
-  }
-
-  updateTotalSeasons(total) {
-    let totalSeasons = parseInt(total);
-    this.setState({totalSeasons: totalSeasons});
   }
 
   updateCategory(e, {value}) {this.setState({category: value});}
@@ -91,13 +85,11 @@ class UpdateTvshowContainer extends Component {
         category={this.state.category}
         tvshowTitle={this.state.tvshowTitle}
         actors={this.state.actors}
-        totalSeasons={this.state.totalSeasons}
         productionDate={this.productionDate}
         handleOpen={this.handleOpen.bind(this)}
         handleClose={this.handleClose.bind(this)}
         updateTvshowTitle={this.updateTvshowTitle.bind(this)}
         updateActors={this.updateActors.bind(this)}
-        updateTotalSeasons={this.updateTotalSeasons.bind(this)}
         updateCategory={this.updateCategory.bind(this)}
         updateProdDate={this.updateProdDate.bind(this)}
         updateTvshow={this.updateTvshow.bind(this)}

@@ -17,6 +17,7 @@ const episodeMethods = {
 
       const episodeData = {
         episodeTitle: episode.episodeTitle,
+        tvShowId: episode.tvShowId,
         format: episode.format,
         season: episode.season,
         downloadLink: episode.downloadLink,

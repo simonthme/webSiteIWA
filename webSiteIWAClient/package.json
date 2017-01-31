@@ -29,14 +29,15 @@
     "axios": "^0.15.3",
     "bluebird": "^3.4.6",
     "bootstrap": "^3.3.7",
+    "moment": "latest",
     "react-datepicker": "^0.39.0",
+    "react-intl": "^2.2.3",
     "react-redux": "^4.4.6",
     "react-router": "^3.0.0",
     "react-router-bootstrap": "^0.23.1",
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
     "semantic-ui-css": "^2.2.4",
-    "semantic-ui-react": "^0.62.1",
-    "moment": "latest"
+    "semantic-ui-react": "^0.62.1"
   }
 }

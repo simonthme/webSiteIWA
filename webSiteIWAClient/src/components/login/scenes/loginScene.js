@@ -2,7 +2,7 @@
  * Created by simonthome on 22/01/2017.
  */
 import React, {Component} from 'react';
-import {Button, Modal, Form, Container} from 'semantic-ui-react';
+import {Button, Modal, Form, Container, Message} from 'semantic-ui-react';
 
 
 const LoginScene = (props) => {
@@ -29,6 +29,11 @@ const LoginScene = (props) => {
         <Form.Field></Form.Field>
       </Form>
       <Button floated='left' onClick={props.login}>Sign in</Button><br />
+      <Message negative
+               hidden={props.messageVisible}
+               onDismiss={props.dismissMessage}>
+        <Message.Header>{props.errorMessage}</Message.Header>
+      </Message>
     </Modal.Content>
   </Modal>
       </container>

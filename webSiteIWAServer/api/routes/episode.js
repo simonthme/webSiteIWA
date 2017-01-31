@@ -68,7 +68,7 @@ module.exports = function () {
   router.post('/', (req,res) => {
     const userId = req.header.userId;
     console.log(req.body);
-    episodeMethods.findEpisodeByTvShow(req.body.id , req.body.season)
+    episodeMethods.findEpisodeByTvShow(req.body.tvShowId , req.body.season)
       .then(episodes => {
         console.log(episodes);
         if (episodes.length > 0) {

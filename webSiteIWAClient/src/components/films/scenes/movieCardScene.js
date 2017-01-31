@@ -3,7 +3,8 @@
  */
 import React, {Component} from 'react';
 import { Button, Card, Image } from 'semantic-ui-react';
-
+import {IntlProvider,FormattedDate} from 'react-intl';
+import frenchLocaleData from 'react-intl/locale-data/fr';
 
 const MovieCardScene = (props) => {
   return(
@@ -27,14 +28,18 @@ const MovieCardScene = (props) => {
                     )
                   })
                 }
+                <IntlProvider locale={'fr'}>
                 <Card.Description>
                   Format: {movie.format}<br/>
                   Catégorie: {movie.category}<br/>
                   <a href={movie.downloadLink}>Lien de téléchargement</a><br/>
                   <a href={movie.subLink}>Lien de sous-titre</a><br/>
-                  Date de Production: {movie.productionDate}<br/>
-                  Date d'ajout: {movie.creationDate}<br/>
+                  Date de Production: <FormattedDate  value={movie.productionDate}
+                                                       /><br/>
+                  Date d'ajout: <FormattedDate  value={movie.creationDate}
+                                                 /><br/>
                 </Card.Description>
+                </IntlProvider>
               </Card.Content>
             </Card>
           );

@@ -8,7 +8,6 @@ const tvShowSchema = new mongoose.Schema({
   tvShowTitle: String,
   actors: [String],
   category: String,
-  totalSeason: Number,
   uploader: String,
   productionDate: Date,
   creationDate: Date,

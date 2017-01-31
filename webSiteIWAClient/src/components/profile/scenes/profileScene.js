@@ -45,7 +45,7 @@ const ProfileScene = (props) => {
                                 <Grid.Column>
                                     <Segment basic>
                                         <Header as="h2"><Icon name='dropdown' />
-                                            Mes Films
+                                            Mes Films: {props.getMovieCount()}
                                             </Header>
                                     </Segment>
                                 </Grid.Column>
@@ -68,7 +68,7 @@ const ProfileScene = (props) => {
                                 <Grid.Column>
                                     <Segment basic>
                                         <Header as="h2"><Icon name='dropdown' />
-                                            Mes Séries
+                                            Mes Séries: {props.getTvshowCount()}
                                         </Header>
                                     </Segment>
                                 </Grid.Column>

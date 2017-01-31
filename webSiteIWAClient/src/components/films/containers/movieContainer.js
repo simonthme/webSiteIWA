@@ -54,18 +54,23 @@ class MovieContainer extends Component {
   };
 
   updateSearchSelect (e, {value}) {
-    this.setState({searchValue: value});
+    this.state.searchValue = value;
     console.log(this.state.searchValue);
   }
 
   updateSearch(searchString) {
-    this.props.searchMovieSuccess(searchString.target.value, this.state.searchValue);
-    // this.props.searchMovie({searchTitle: this.state.searchValue})
-    //   .then(() => {
-    //   console.log('ok search');
-    //   console.log(this.props.movies);
-    //   })
-    //   .catch(err => console.log(err));
+    if (searchString.target.value !== '') {
+      console.log('search');
+      this.props.searchMovieSuccess(searchString.target.value, this.state.searchValue);
+    } else {
+      console.log('init');
+      this.props.fetchMovie()
+        .then(() => {
+          console.log('success fetch movie');
+          console.log(this.props.movies);
+        })
+        .catch(err => console.log(err));
+    }
   };
 
   render() {
@@ -78,6 +83,7 @@ class MovieContainer extends Component {
           options={this.state.options}
           updateSearch={this.updateSearch.bind(this)}
           updateSearchSelect={this.updateSearchSelect.bind(this)}
+
           />
         </div>
     )

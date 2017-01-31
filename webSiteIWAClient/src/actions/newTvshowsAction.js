@@ -2,7 +2,6 @@
  * Created by simonthome on 28/01/2017.
  */
 import Axios from 'axios';
-import actionTypes from './actionTypes';
 import config from '../../assets/config';
 
 export const fetchNewTvshowSuccess = tvshows => {

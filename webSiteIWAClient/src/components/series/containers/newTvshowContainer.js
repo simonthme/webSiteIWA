@@ -14,7 +14,6 @@ class NewTvshowContainer extends Component {
     this.state= {
       tvshowTitle: '',
       actors : [],
-      totalSeasons: '',
       category: '',
       productionDate: '',
       startDate: moment(),
@@ -37,7 +36,13 @@ class NewTvshowContainer extends Component {
       }
       ],
       modalOpen: false,
+      messageVisible: true,
+      errorMessage: ''
     }
+  }
+
+  dismissMessage(e, data) {
+    this.setState({messageVisible:true});
   }
 
   handleOpen() {this.setState({modalOpen: true});}
@@ -46,7 +51,6 @@ class NewTvshowContainer extends Component {
     this.setState({modalOpen: false, tvshowTitle: '',
       actors : [],
       format: '',
-      totalSeasons: '',
       category: '',
       downloadLink: '',
       subLink: '',
@@ -64,10 +68,6 @@ class NewTvshowContainer extends Component {
     this.setState({actors: actorsArray});
   }
 
-  updateTotalSeasons(total) {
-    let totalSeasons = parseInt(total.target.value);
-    this.setState({totalSeasons: totalSeasons});
-  }
 
   updateFormat(e, {value}) {this.setState({format: value});}
 
@@ -83,23 +83,24 @@ class NewTvshowContainer extends Component {
     console.log(this.state.tvshowTitle);
     console.log(this.state.actors);
     console.log(this.state.category);
-    console.log(this.state.downloadLink);
-    console.log(this.state.subLink);
     console.log(this.state.productionDate);
 
-    const tvshowData = {
-      tvshowTitle: this.state.tvshowTitle,
-      actors: this.state.actors,
-      totalSeason: this.state.totalSeasons,
-      category: this.state.category,
-      productionDate: this.state.productionDate,
-    };
-    this.props.createTvshow(tvshowData)
-      .then(() => {
-        this.handleClose();
-        console.log(this.props.myTvshows);
-      })
-      .catch(err => console.log(err));
+    if (this.state.tvshowTitle === '' || this.state.actors.length === 0 || this.state.category === '') {
+      this.setState({messageVisible: false, errorMessage: 'Veuillez remplir tous les champs.'});
+    } else {
+      const tvshowData = {
+        tvshowTitle: this.state.tvshowTitle,
+        actors: this.state.actors,
+        category: this.state.category,
+        productionDate: this.state.productionDate,
+      };
+      this.props.createTvshow(tvshowData)
+        .then(() => {
+          this.handleClose();
+          console.log(this.props.myTvshows);
+        })
+        .catch(err => console.log(err));
+    }
   };
 
 
@@ -110,11 +111,13 @@ class NewTvshowContainer extends Component {
         startDate={this.state.startDate}
         categoryOptions={this.state.categoryOptions}
         category={this.state.category}
+        messageVisible={this.state.messageVisible}
+        errorMessage={this.state.errorMessage}
+        dismissMessage={this.dismissMessage.bind(this)}
         handleOpen={this.handleOpen.bind(this)}
         handleClose={this.handleClose.bind(this)}
         updateTvshowTitle={this.updateTvshowTitle.bind(this)}
         updateActors={this.updateActors.bind(this)}
-        updateTotalSeasons={this.updateTotalSeasons.bind(this)}
         updateCategory={this.updateCategory.bind(this)}
         updateProdDate={this.updateProdDate.bind(this)}
         addTvshow={this.addTvshow.bind(this)}

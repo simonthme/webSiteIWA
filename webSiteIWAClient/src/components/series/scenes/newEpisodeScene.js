@@ -2,7 +2,7 @@
  * Created by simonthome on 27/01/2017.
  */
 import React,{Component} from 'react';
-import {Button, Modal, Form, Dropdown} from 'semantic-ui-react';
+import {Button, Modal, Form, Dropdown, Message} from 'semantic-ui-react';
 import DatePicker from 'react-datepicker';
 
 require('react-datepicker/dist/react-datepicker.css');
@@ -45,6 +45,11 @@ const NewEpisodeScene = (props) => {
           </Form.Field>
         </Form>
         <Button floated='left' onClick={props.addEpisode}>Valider l'episode</Button>
+        <Message negative
+                 hidden={props.messageVisible}
+                 onDismiss={props.dismissMessage}>
+          <Message.Header>{props.errorMessage}</Message.Header>
+        </Message>
       </Modal.Content>
     </Modal>
   )

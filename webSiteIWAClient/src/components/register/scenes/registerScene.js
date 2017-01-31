@@ -2,7 +2,7 @@
  * Created by simonthome on 22/01/2017.
  */
 import React, {Component} from 'react';
-import {Button, Modal, Form, FormField} from 'semantic-ui-react';
+import {Button, Modal, Form, Message, FormField} from 'semantic-ui-react';
 
 const RegisterScene = (props) => {
   return (
@@ -29,13 +29,18 @@ const RegisterScene = (props) => {
           <input type='password' placeholder='Password' onChange={props.updatePassword}/>
         </Form.Field>
         <Form.Field>
-          <input type='password' placeholder='Confirm Password' />
+          <input type='password' placeholder='Confirm Password' onChange={props.updateConfirmPassword} />
         </Form.Field>
-        <Form.Checkbox label='I agree to the Terms and Conditions' />
-        <Button floated='left' onClick={props.register}>Register</Button>
+        <Form.Checkbox label='I agree to the Terms and Conditions' onChange={props.updateCheck} />
         <Form.Field>
         </Form.Field>
       </Form>
+      <Button floated='left' onClick={props.register}>Register</Button>
+      <Message negative
+               hidden={props.messageVisible}
+               onDismiss={props.dismissMessage}>
+        <Message.Header>{props.errorMessage}</Message.Header>
+      </Message>
     </Modal.Content>
     </Modal>
   );

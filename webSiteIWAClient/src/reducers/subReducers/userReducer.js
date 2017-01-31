@@ -11,10 +11,16 @@ export default (state = {}, action) => {
     case 'CREATE_USER_SUCCESS':
       return Object.assign({}, state, action.user);
       break;
+    case 'CREATE_USER_ERROR':
+      return {};
+      break;
     case 'LOGIN_USER_SUCCESS' :
       console.log('reduser login user' + JSON.stringify(action.user));
       browserHistory.push('/');
       return Object.assign({}, state, action.user);
+      break;
+    case 'LOGIN_USER_ERROR' :
+      return {};
       break;
     case 'FETCH_USER_SUCCESS':
       return Object.assign({}, state, action.user);
