@@ -2,7 +2,7 @@
  * Created by simonthome on 28/01/2017.
  */
 import React, {Component} from 'react';
-import { Button, Card, Image, Select, Form, Divider } from 'semantic-ui-react';
+import { Card, Form, Divider } from 'semantic-ui-react';
 import {IntlProvider,FormattedDate, addLocaleData} from 'react-intl';
 import fr from 'react-intl/locale-data/fr';
 addLocaleData([...fr]);

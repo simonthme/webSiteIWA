@@ -2,7 +2,6 @@
  * Created by simonthome on 14/12/2016.
  */
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import LoginScene from '../scenes/loginScene';
 import {connect} from 'react-redux';
 import * as userAction from '../../../actions/userAction';

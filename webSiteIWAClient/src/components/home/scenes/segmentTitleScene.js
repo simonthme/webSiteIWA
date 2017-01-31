@@ -2,7 +2,7 @@
  * Created by simonthome on 22/01/2017.
  */
 import React,{Component} from 'react';
-import { Input, Menu, Segment, Button, Header, Label} from 'semantic-ui-react'
+import { Segment, Header } from 'semantic-ui-react'
 import MovieCardScene from '../../films/scenes/movieCardScene';
 import TvShowCardContainer from '../../series/containers/tvShowCardContainer'
 

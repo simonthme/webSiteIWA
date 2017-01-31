@@ -5,7 +5,6 @@ import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import * as myEpisodeAction from '../../../actions/myEpisodesAction';
 import NewEpisodeScene from '../scenes/newEpisodeScene';
-import moment from 'moment';
 
 class NewEpisodeContainer extends Component {
 

@@ -2,7 +2,7 @@
  * Created by simonthome on 22/01/2017.
  */
 import React,{Component} from 'react';
-import { Input, Menu, Segment, Button, Modal, Header } from 'semantic-ui-react'
+import { Menu, Button } from 'semantic-ui-react'
 
 import LoginContainer from '../../login/containers/loginContainer';
 import RegisterContainer from '../../register/containers/registerContainer';

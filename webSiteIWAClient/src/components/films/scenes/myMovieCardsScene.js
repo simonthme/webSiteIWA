@@ -2,10 +2,9 @@
  * Created by simonthome on 24/01/2017.
  */
 import React, {Component} from 'react';
-import { Button, Card, Image } from 'semantic-ui-react';
+import { Button, Card} from 'semantic-ui-react';
 import UpdateMovieContainer from '../containers/updateMovieContainer';
 import {IntlProvider,FormattedDate} from 'react-intl';
-import frenchLocaleData from 'react-intl/locale-data/fr';
 
 const MyMovieCardsScene = (props) => {
   return(

@@ -5,8 +5,6 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import HomeMenuContainer from '../home/containers/homeMenuContainer';
 import * as userAction from '../../actions/userAction';
-import * as authAction from '../../actions/authAction';
-
 
 class App extends Component {
 

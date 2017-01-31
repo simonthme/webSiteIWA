@@ -5,7 +5,7 @@
  * Created by simonthome on 22/01/2017.
  */
 import React, {Component} from 'react';
-import {Button, Modal, Form, FormField} from 'semantic-ui-react';
+import {Button, Modal, Form} from 'semantic-ui-react';
 
 const UpdateProfileScene = (props) => {
   return (
@@ -32,10 +32,9 @@ const UpdateProfileScene = (props) => {
             <Form.Input  type='password' placeholder='Password' onChange={props.updatePassword} value={props.password}/>
           </Form.Field>
           <Form.Field>
-              <Button floated='left' onClick={props.updateUser}>Modifier</Button>
+            <Button floated='left' onClick={props.updateUser}>Modifier</Button>
           </Form.Field>
-            <Form.Field>
-            </Form.Field>
+          <br />
         </Form>
       </Modal.Content>
     </Modal>

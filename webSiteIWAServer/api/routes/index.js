@@ -52,7 +52,8 @@ module.exports = (function () {
       }, (err, user) => {
         if (err) throw err;
         if (!user) {
-          return res.status(403).send({success: false, msg: 'Authentication failed. User not found.'});
+          return res.status(403).send({success: false, msg: 'Authentification' +
+          ' failed. User not found.'});
         } else {
           req.header.userId = user._id;
           next();

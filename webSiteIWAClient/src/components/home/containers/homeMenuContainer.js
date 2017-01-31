@@ -5,7 +5,6 @@ import React,{Component} from 'react';
 import HomeMenuScene from '../scenes/homeMenuScene';
 import {browserHistory} from 'react-router';
 import {connect} from 'react-redux';
-import * as authAction from '../../../actions/authAction';
 
 
 

@@ -2,7 +2,6 @@
  * Created by simonthome on 14/12/2016.
  */
 import React,{Component} from 'react';
-import { Grid, Segment, Divider, Header, Input, Menu } from 'semantic-ui-react'
 import MovieScene from '../scenes/movieScene';
 import {connect} from 'react-redux';
 import * as moviesAction from '../../../actions/moviesAction'

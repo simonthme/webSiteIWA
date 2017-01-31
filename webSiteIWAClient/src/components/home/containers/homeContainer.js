@@ -3,7 +3,6 @@
  */
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
-import * as userAction from '../../../actions/userAction';
 import * as newMovieAction from '../../../actions/newMovieAction';
 
 import HomeScene from '../scenes/homeScene';
